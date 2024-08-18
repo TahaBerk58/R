@@ -1964,6 +1964,7 @@ class(a)</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<hr />
 </div>
 <div id="built-in-math-functions" class="section level1">
 <h1>Built-in Math Functions</h1>
@@ -1986,11 +1987,127 @@ of a number:</p>
 <p>The <code>ceiling()</code> function rounds a number upwards to its
 nearest integer, and the <code>floor()</code> function rounds a number
 downwards to its nearest integer, and returns the result:</p>
-<!-- rnb-text-end -->
+<hr />
 </div>
+</div>
+<div id="string-literals" class="section level1">
+<h1>String Literals</h1>
+<p><code>&quot;hello&quot;</code> is the same as <code>&#39;hello&#39;</code>:</p>
+<div id="multiple-strings" class="section level2">
+<h2>Multiple Strings</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyIDwtIFwiVGFoYSxcbkJlcmssXG5UZXJla2xpXCJcblxuc3RyXG5gYGAifQ== -->
+<pre class="r"><code>str &lt;- &quot;Taha,
+Berk,
+Terekli&quot;
+
+str</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiVGFoYSxcXG5CZXJrLFxcblRlcmVrbGlcIlxuIn0= -->
+<pre><code>[1] &quot;Taha,\nBerk,\nTerekli&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li>If you want the line breaks inserted at the same position as in the
+code, use the <code>cat()</code> function:</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyIDwtIFwiVGFoYSxcbkJlcmssXG5UZXJla2xpXCJcblxuY2F0KHN0cilcbmBgYCJ9 -->
+<pre class="r"><code>str &lt;- &quot;Taha,
+Berk,
+Terekli&quot;
+
+cat(str)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiVGFoYSxcbkJlcmssXG5UZXJla2xpXG4ifQ== -->
+<pre><code>Taha,
+Berk,
+Terekli</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="string-length" class="section level1">
+<h1>String Length</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyIDwtIFwiVGFoYSBCZXJrXCJcbm5jaGFyKHN0cilcbmBgYCJ9 -->
+<pre class="r"><code>str &lt;- &quot;Taha Berk&quot;
+nchar(str)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDlcbiJ9 -->
+<pre><code>[1] 9</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="check-a-string" class="section level1">
+<h1>Check a String</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyIDwtIFwiVGFoYSBCZXJrXCJcblxuZ3JlcGwoXCJUXCIsIHN0cilcbmBgYCJ9 -->
+<pre class="r"><code>str &lt;- &quot;Taha Berk&quot;
+
+grepl(&quot;T&quot;, str)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ3JlcGwoXCJUYWhhXCIsIHN0cilcbmBgYCJ9 -->
+<pre class="r"><code>grepl(&quot;Taha&quot;, str)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ3JlcGwoXCJDXCIsIHN0cilcbmBgYCJ9 -->
+<pre class="r"><code>grepl(&quot;C&quot;, str)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="escape-characters" class="section level1">
+<h1>Escape Characters</h1>
+<p>To insert characters that are illegal in a string, you must use an
+escape character. An escape character is a backslash  followed by the
+character you want to insert. An example of an illegal character is a
+double quote inside a string that is surrounded by double quotes:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyIDwtIFwiV2UgYXJlIHRoZSBzby1jYWxsZWQgXFxcIlZpa2luZ3NcXFwiLCBmcm9tIHRoZSBub3J0aC5cIlxuXG5zdHJcbmBgYCJ9 -->
+<pre class="r"><code>str &lt;- &quot;We are the so-called \&quot;Vikings\&quot;, from the north.&quot;
+
+str</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiV2UgYXJlIHRoZSBzby1jYWxsZWQgXFxcIlZpa2luZ3NcXFwiLCBmcm9tIHRoZSBub3J0aC5cIlxuIn0= -->
+<pre><code>[1] &quot;We are the so-called \&quot;Vikings\&quot;, from the north.&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2F0KHN0cilcbmBgYCJ9 -->
+<pre class="r"><code>cat(str)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2UgYXJlIHRoZSBzby1jYWxsZWQgXCJWaWtpbmdzXCIsIGZyb20gdGhlIG5vcnRoLlxuIn0= -->
+<pre><code>We are the so-called &quot;Vikings&quot;, from the north.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuJycnQ29kZVx0ICBSZXN1bHRcbiAgIFxcXFxcdC0tPiBCYWNrc2xhc2hcbiAgIFxcblx0LS0+IE5ldyBMaW5lXG4gICBcXHJcdC0tPiBDYXJyaWFnZSBSZXR1cm5cbiAgIFxcdFx0LS0+IFRhYlxuICAgXFxiXHQtLT4gQmFja3NwYWNlJycnXG5gYGAifQ== -->
+<pre class="r"><code>&#39;&#39;&#39;Code   Result
+   \\   --&gt; Backslash
+   \n   --&gt; New Line
+   \r   --&gt; Carriage Return
+   \t   --&gt; Tab
+   \b   --&gt; Backspace&#39;&#39;&#39;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQojIFIgVHV0b3JpYWwKLSBJdCBpcyBhIGdyZWF0IHJlc291cmNlIGZvciBkYXRhIGFuYWx5c2lzLCBkYXRhIHZpc3VhbGl6YXRpb24sIGRhdGEgc2NpZW5jZSBhbmQgbWFjaGluZSBsZWFybmluZwotIEl0IHByb3ZpZGVzIG1hbnkgc3RhdGlzdGljYWwgdGVjaG5pcXVlcyAoc3VjaCBhcyBzdGF0aXN0aWNhbCB0ZXN0cywgY2xhc3NpZmljYXRpb24sIGNsdXN0ZXJpbmcgYW5kIGRhdGEgcmVkdWN0aW9uKQotIEl0IGlzIGVhc3kgdG8gZHJhdyBncmFwaHMgaW4gUiwgbGlrZSBwaWUgY2hhcnRzLCBoaXN0b2dyYW1zLCBib3ggcGxvdCwgc2NhdHRlciBwbG90LCBldGMrKwotIEl0IHdvcmtzIG9uIGRpZmZlcmVudCBwbGF0Zm9ybXMgKFdpbmRvd3MsIE1hYywgTGludXgpCi0gSXQgaXMgb3Blbi1zb3VyY2UgYW5kIGZyZWUKLSBJdCBoYXMgYSBsYXJnZSBjb21tdW5pdHkgc3VwcG9ydAotIEl0IGhhcyBtYW55IHBhY2thZ2VzIChsaWJyYXJpZXMgb2YgZnVuY3Rpb25zKSB0aGF0IGNhbiBiZSB1c2VkIHRvIHNvbHZlIGRpZmZlcmVudCBwcm9ibGVtcwpgYGB7cn0KIyBQcmludApmb3IgKHggaW4gMToxMCl7CiAgcHJpbnQoeCkKfQpgYGAKYGBge3J9CiMgVmFyaWFibGVzCm5hbWUgPC0gIlRhaGEgQmVyayIKYWdlIDwtIDIxCgpuYW1lCmFnZQpgYGAKYGBge3J9CiMgQ29uY2F0ZW5hdGUgRWxlbWVudHMKdGV4dCA8LSAiYXdzb21lIgoKcGFzdGUoIkNlcmVuIiwgdGV4dCkKCnRleHQxIDwtICJDZXJlbiIKdGV4dDIgPC0gImF3c29tZSIKCnBhc3RlKHRleHQxLCB0ZXh0MikKYGBgCmBgYHtyfQp2YXIxIDwtIHZhcjIgPC0gdmFyMyA8LSB2YXI0IDwtICJvcmFuZ2UiCgp2YXIxCnZhcjIKdmFyMwp2YXI0CmBgYAojIEJhc2ljIERhdGEgVHlwZXMKCkJhc2ljIGRhdGEgdHlwZXMgaW4gUiBjYW4gYmUgZGl2aWRlZCBpbnRvIHRoZSBmb2xsb3dpbmcgdHlwZXM6CgotIG51bWVyaWMgLSAoMTAuNSwgNTUsIDc4NykKLSBpbnRlZ2VyIC0gKDFMLCA1NUwsIDEwMEwsIHdoZXJlIHRoZSBsZXR0ZXIgIkwiIGRlY2xhcmVzIHRoaXMgYXMgYW4gaW50ZWdlcikKLSBjb21wbGV4IC0gKDkgKyAzaSwgd2hlcmUgImkiIGlzIHRoZSBpbWFnaW5hcnkgcGFydCkKLSBjaGFyYWN0ZXIgKGEuay5hLiBzdHJpbmcpIC0gKCJrIiwgIlIgaXMgZXhjaXRpbmciLCAiRkFMU0UiLCAiMTEuNSIpCi0gbG9naWNhbCAoYS5rLmEuIGJvb2xlYW4pIC0gKFRSVUUgb3IgRkFMU0UpCgpXZSBjYW4gdXNlIHRoZSBjbGFzcygpIGZ1bmN0aW9uIHRvIGNoZWNrIHRoZSBkYXRhIHR5cGUgb2YgYSB2YXJpYWJsZToKYGBge3J9CiMgRGF0YSBUeXBlcwojIG51bWVyaWMKeCA8LSAxMC41CmNsYXNzKHgpCgojIGludGVnZXIKeCA8LSAxMDAwTApjbGFzcyh4KQoKIyBjb21wbGV4CnggPC0gOWkgKyAzCmNsYXNzKHgpCgojIGNoYXJhY3Rlci9zdHJpbmcKeCA8LSAiUiBpcyBleGNpdGluZyIKY2xhc3MoeCkKCiMgbG9naWNhbC9ib29sZWFuCnggPC0gVFJVRQpjbGFzcyh4KQpgYGAKIyBUeXBlIENvbnZlcnNpb24KCllvdSBjYW4gY29udmVydCBmcm9tIG9uZSB0eXBlIHRvIGFub3RoZXIgd2l0aCB0aGUgZm9sbG93aW5nIGZ1bmN0aW9uczoKCi0gYXMubnVtZXJpYygpCi0gYXMuaW50ZWdlcigpCi0gYXMuY29tcGxleCgpCmBgYHtyfQp4IDwtIDFMICMgaW50ZWdlcgp5IDwtIDIgIyBudW1lcmljCgojIGNvbnZlcnQgZnJvbSBpbnRlZ2VyIHRvIG51bWVyaWM6CmEgPC0gYXMubnVtZXJpYyh4KQoKIyBjb252ZXJ0IGZyb20gbnVtZXJpYyB0byBpbnRlZ2VyOgpiIDwtIGFzLmludGVnZXIoeSkKCiMgcHJpbnQgdmFsdWVzIG9mIHggYW5kIHkKeAp5CgojIHByaW50IHRoZSBjbGFzcyBuYW1lIG9mIGEgYW5kIGIKY2xhc3MoYSkKY2xhc3MoYikKYGBgCiMgQnVpbHQtaW4gTWF0aCBGdW5jdGlvbnMKClIgYWxzbyBoYXMgbWFueSBidWlsdC1pbiBtYXRoIGZ1bmN0aW9ucyB0aGF0IGFsbG93cyB5b3UgdG8gcGVyZm9ybSBtYXRoZW1hdGljYWwgdGFza3Mgb24gbnVtYmVycy4KCkZvciBleGFtcGxlLCB0aGUgYG1pbigpYCBhbmQgYG1heCgpYCBmdW5jdGlvbnMgY2FuIGJlIHVzZWQgdG8gZmluZCB0aGUgbG93ZXN0IG9yIGhpZ2hlc3QgbnVtYmVyIGluIGEgc2V0OgoKIyMjIHNxcnQoKQpUaGUgYHNxcnQoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgc3F1YXJlIHJvb3Qgb2YgYSBudW1iZXI6CgojIyMgYWJzKCkKVGhlIGBhYnMoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgKHBvc2l0aXZlKSB2YWx1ZSBvZiBhIG51bWJlcjoKCiMjIyBjZWlsaW5nKCkgYW5kIGZsb29yKCkKVGhlIGBjZWlsaW5nKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciB1cHdhcmRzIHRvIGl0cyBuZWFyZXN0IGludGVnZXIsIGFuZCB0aGUgYGZsb29yKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciBkb3dud2FyZHMgdG8gaXRzIG5lYXJlc3QgaW50ZWdlciwgYW5kIHJldHVybnMgdGhlIHJlc3VsdDoKCgoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQojIFIgVHV0b3JpYWwKLSBJdCBpcyBhIGdyZWF0IHJlc291cmNlIGZvciBkYXRhIGFuYWx5c2lzLCBkYXRhIHZpc3VhbGl6YXRpb24sIGRhdGEgc2NpZW5jZSBhbmQgbWFjaGluZSBsZWFybmluZwotIEl0IHByb3ZpZGVzIG1hbnkgc3RhdGlzdGljYWwgdGVjaG5pcXVlcyAoc3VjaCBhcyBzdGF0aXN0aWNhbCB0ZXN0cywgY2xhc3NpZmljYXRpb24sIGNsdXN0ZXJpbmcgYW5kIGRhdGEgcmVkdWN0aW9uKQotIEl0IGlzIGVhc3kgdG8gZHJhdyBncmFwaHMgaW4gUiwgbGlrZSBwaWUgY2hhcnRzLCBoaXN0b2dyYW1zLCBib3ggcGxvdCwgc2NhdHRlciBwbG90LCBldGMrKwotIEl0IHdvcmtzIG9uIGRpZmZlcmVudCBwbGF0Zm9ybXMgKFdpbmRvd3MsIE1hYywgTGludXgpCi0gSXQgaXMgb3Blbi1zb3VyY2UgYW5kIGZyZWUKLSBJdCBoYXMgYSBsYXJnZSBjb21tdW5pdHkgc3VwcG9ydAotIEl0IGhhcyBtYW55IHBhY2thZ2VzIChsaWJyYXJpZXMgb2YgZnVuY3Rpb25zKSB0aGF0IGNhbiBiZSB1c2VkIHRvIHNvbHZlIGRpZmZlcmVudCBwcm9ibGVtcwpgYGB7cn0KIyBQcmludApmb3IgKHggaW4gMToxMCl7CiAgcHJpbnQoeCkKfQpgYGAKYGBge3J9CiMgVmFyaWFibGVzCm5hbWUgPC0gIlRhaGEgQmVyayIKYWdlIDwtIDIxCgpuYW1lCmFnZQpgYGAKYGBge3J9CiMgQ29uY2F0ZW5hdGUgRWxlbWVudHMKdGV4dCA8LSAiYXdzb21lIgoKcGFzdGUoIkNlcmVuIiwgdGV4dCkKCnRleHQxIDwtICJDZXJlbiIKdGV4dDIgPC0gImF3c29tZSIKCnBhc3RlKHRleHQxLCB0ZXh0MikKYGBgCmBgYHtyfQp2YXIxIDwtIHZhcjIgPC0gdmFyMyA8LSB2YXI0IDwtICJvcmFuZ2UiCgp2YXIxCnZhcjIKdmFyMwp2YXI0CmBgYAojIEJhc2ljIERhdGEgVHlwZXMKCkJhc2ljIGRhdGEgdHlwZXMgaW4gUiBjYW4gYmUgZGl2aWRlZCBpbnRvIHRoZSBmb2xsb3dpbmcgdHlwZXM6CgotIG51bWVyaWMgLSAoMTAuNSwgNTUsIDc4NykKLSBpbnRlZ2VyIC0gKDFMLCA1NUwsIDEwMEwsIHdoZXJlIHRoZSBsZXR0ZXIgIkwiIGRlY2xhcmVzIHRoaXMgYXMgYW4gaW50ZWdlcikKLSBjb21wbGV4IC0gKDkgKyAzaSwgd2hlcmUgImkiIGlzIHRoZSBpbWFnaW5hcnkgcGFydCkKLSBjaGFyYWN0ZXIgKGEuay5hLiBzdHJpbmcpIC0gKCJrIiwgIlIgaXMgZXhjaXRpbmciLCAiRkFMU0UiLCAiMTEuNSIpCi0gbG9naWNhbCAoYS5rLmEuIGJvb2xlYW4pIC0gKFRSVUUgb3IgRkFMU0UpCgpXZSBjYW4gdXNlIHRoZSBjbGFzcygpIGZ1bmN0aW9uIHRvIGNoZWNrIHRoZSBkYXRhIHR5cGUgb2YgYSB2YXJpYWJsZToKYGBge3J9CiMgRGF0YSBUeXBlcwojIG51bWVyaWMKeCA8LSAxMC41CmNsYXNzKHgpCgojIGludGVnZXIKeCA8LSAxMDAwTApjbGFzcyh4KQoKIyBjb21wbGV4CnggPC0gOWkgKyAzCmNsYXNzKHgpCgojIGNoYXJhY3Rlci9zdHJpbmcKeCA8LSAiUiBpcyBleGNpdGluZyIKY2xhc3MoeCkKCiMgbG9naWNhbC9ib29sZWFuCnggPC0gVFJVRQpjbGFzcyh4KQpgYGAKIyBUeXBlIENvbnZlcnNpb24KCllvdSBjYW4gY29udmVydCBmcm9tIG9uZSB0eXBlIHRvIGFub3RoZXIgd2l0aCB0aGUgZm9sbG93aW5nIGZ1bmN0aW9uczoKCi0gYXMubnVtZXJpYygpCi0gYXMuaW50ZWdlcigpCi0gYXMuY29tcGxleCgpCmBgYHtyfQp4IDwtIDFMICMgaW50ZWdlcgp5IDwtIDIgIyBudW1lcmljCgojIGNvbnZlcnQgZnJvbSBpbnRlZ2VyIHRvIG51bWVyaWM6CmEgPC0gYXMubnVtZXJpYyh4KQoKIyBjb252ZXJ0IGZyb20gbnVtZXJpYyB0byBpbnRlZ2VyOgpiIDwtIGFzLmludGVnZXIoeSkKCiMgcHJpbnQgdmFsdWVzIG9mIHggYW5kIHkKeAp5CgojIHByaW50IHRoZSBjbGFzcyBuYW1lIG9mIGEgYW5kIGIKY2xhc3MoYSkKY2xhc3MoYikKYGBgCgotLS0KCiMgQnVpbHQtaW4gTWF0aCBGdW5jdGlvbnMKClIgYWxzbyBoYXMgbWFueSBidWlsdC1pbiBtYXRoIGZ1bmN0aW9ucyB0aGF0IGFsbG93cyB5b3UgdG8gcGVyZm9ybSBtYXRoZW1hdGljYWwgdGFza3Mgb24gbnVtYmVycy4KCkZvciBleGFtcGxlLCB0aGUgYG1pbigpYCBhbmQgYG1heCgpYCBmdW5jdGlvbnMgY2FuIGJlIHVzZWQgdG8gZmluZCB0aGUgbG93ZXN0IG9yIGhpZ2hlc3QgbnVtYmVyIGluIGEgc2V0OgoKIyMjIHNxcnQoKQpUaGUgYHNxcnQoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgc3F1YXJlIHJvb3Qgb2YgYSBudW1iZXI6CgojIyMgYWJzKCkKVGhlIGBhYnMoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgKHBvc2l0aXZlKSB2YWx1ZSBvZiBhIG51bWJlcjoKCiMjIyBjZWlsaW5nKCkgYW5kIGZsb29yKCkKVGhlIGBjZWlsaW5nKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciB1cHdhcmRzIHRvIGl0cyBuZWFyZXN0IGludGVnZXIsIGFuZCB0aGUgYGZsb29yKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciBkb3dud2FyZHMgdG8gaXRzIG5lYXJlc3QgaW50ZWdlciwgYW5kIHJldHVybnMgdGhlIHJlc3VsdDoKCi0tLQoKIyBTdHJpbmcgTGl0ZXJhbHMKYCJoZWxsbyJgIGlzIHRoZSBzYW1lIGFzIGAnaGVsbG8nYDoKCiMjIE11bHRpcGxlIFN0cmluZ3MKYGBge3J9CnN0ciA8LSAiVGFoYSwKQmVyaywKVGVyZWtsaSIKCnN0cgpgYGAKCi0gSWYgeW91IHdhbnQgdGhlIGxpbmUgYnJlYWtzIGluc2VydGVkIGF0IHRoZSBzYW1lIHBvc2l0aW9uIGFzIGluIHRoZSBjb2RlLCB1c2UgdGhlIGBjYXQoKWAgZnVuY3Rpb246CmBgYHtyfQpzdHIgPC0gIlRhaGEsCkJlcmssClRlcmVrbGkiCgpjYXQoc3RyKQpgYGAKIyBTdHJpbmcgTGVuZ3RoCmBgYHtyfQpzdHIgPC0gIlRhaGEgQmVyayIKbmNoYXIoc3RyKQpgYGAKIyBDaGVjayBhIFN0cmluZwpgYGB7cn0Kc3RyIDwtICJUYWhhIEJlcmsiCgpncmVwbCgiVCIsIHN0cikKZ3JlcGwoIlRhaGEiLCBzdHIpCmdyZXBsKCJDIiwgc3RyKQpgYGAKIyBFc2NhcGUgQ2hhcmFjdGVycwpUbyBpbnNlcnQgY2hhcmFjdGVycyB0aGF0IGFyZSBpbGxlZ2FsIGluIGEgc3RyaW5nLCB5b3UgbXVzdCB1c2UgYW4gZXNjYXBlIGNoYXJhY3Rlci4KQW4gZXNjYXBlIGNoYXJhY3RlciBpcyBhIGJhY2tzbGFzaCBcIGZvbGxvd2VkIGJ5IHRoZSBjaGFyYWN0ZXIgeW91IHdhbnQgdG8gaW5zZXJ0LgpBbiBleGFtcGxlIG9mIGFuIGlsbGVnYWwgY2hhcmFjdGVyIGlzIGEgZG91YmxlIHF1b3RlIGluc2lkZSBhIHN0cmluZyB0aGF0IGlzIHN1cnJvdW5kZWQgYnkgZG91YmxlIHF1b3RlczoKYGBge3J9CnN0ciA8LSAiV2UgYXJlIHRoZSBzby1jYWxsZWQgXCJWaWtpbmdzXCIsIGZyb20gdGhlIG5vcnRoLiIKCnN0cgpjYXQoc3RyKQpgYGAKYGBge3J9CicnJ0NvZGUJICBSZXN1bHQKICAgXFwJLS0+IEJhY2tzbGFzaAogICBcbgktLT4gTmV3IExpbmUKICAgXHIJLS0+IENhcnJpYWdlIFJldHVybgogICBcdAktLT4gVGFiCiAgIFxiCS0tPiBCYWNrc3BhY2UnJycKYGBg</div>
 
 
 
@@ -2037,7 +2154,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Adsız.Rmd");
+  window.initializeSourceEmbed("learn1.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

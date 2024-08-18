@@ -101,6 +101,9 @@ y
 class(a)
 class(b)
 ```
+
+---
+
 # Built-in Math Functions
 
 R also has many built-in math functions that allows you to perform mathematical tasks on numbers.
@@ -116,7 +119,56 @@ The `abs()` function returns the absolute (positive) value of a number:
 ### ceiling() and floor()
 The `ceiling()` function rounds a number upwards to its nearest integer, and the `floor()` function rounds a number downwards to its nearest integer, and returns the result:
 
+---
 
+# String Literals
+`"hello"` is the same as `'hello'`:
 
+## Multiple Strings
+```{r}
+str <- "Taha,
+Berk,
+Terekli"
 
+str
+```
 
+- If you want the line breaks inserted at the same position as in the code, use the `cat()` function:
+```{r}
+str <- "Taha,
+Berk,
+Terekli"
+
+cat(str)
+```
+# String Length
+```{r}
+str <- "Taha Berk"
+nchar(str)
+```
+# Check a String
+```{r}
+str <- "Taha Berk"
+
+grepl("T", str)
+grepl("Taha", str)
+grepl("C", str)
+```
+# Escape Characters
+To insert characters that are illegal in a string, you must use an escape character.
+An escape character is a backslash \ followed by the character you want to insert.
+An example of an illegal character is a double quote inside a string that is surrounded by double quotes:
+```{r}
+str <- "We are the so-called \"Vikings\", from the north."
+
+str
+cat(str)
+```
+```{r}
+'''Code	  Result
+   \\	--> Backslash
+   \n	--> New Line
+   \r	--> Carriage Return
+   \t	--> Tab
+   \b	--> Backspace'''
+```
