@@ -1,0 +1,122 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+# R Tutorial
+- It is a great resource for data analysis, data visualization, data science and machine learning
+- It provides many statistical techniques (such as statistical tests, classification, clustering and data reduction)
+- It is easy to draw graphs in R, like pie charts, histograms, box plot, scatter plot, etc++
+- It works on different platforms (Windows, Mac, Linux)
+- It is open-source and free
+- It has a large community support
+- It has many packages (libraries of functions) that can be used to solve different problems
+```{r}
+# Print
+for (x in 1:10){
+  print(x)
+}
+```
+```{r}
+# Variables
+name <- "Taha Berk"
+age <- 21
+
+name
+age
+```
+```{r}
+# Concatenate Elements
+text <- "awsome"
+
+paste("Ceren", text)
+
+text1 <- "Ceren"
+text2 <- "awsome"
+
+paste(text1, text2)
+```
+```{r}
+var1 <- var2 <- var3 <- var4 <- "orange"
+
+var1
+var2
+var3
+var4
+```
+# Basic Data Types
+
+Basic data types in R can be divided into the following types:
+
+- numeric - (10.5, 55, 787)
+- integer - (1L, 55L, 100L, where the letter "L" declares this as an integer)
+- complex - (9 + 3i, where "i" is the imaginary part)
+- character (a.k.a. string) - ("k", "R is exciting", "FALSE", "11.5")
+- logical (a.k.a. boolean) - (TRUE or FALSE)
+
+We can use the class() function to check the data type of a variable:
+```{r}
+# Data Types
+# numeric
+x <- 10.5
+class(x)
+
+# integer
+x <- 1000L
+class(x)
+
+# complex
+x <- 9i + 3
+class(x)
+
+# character/string
+x <- "R is exciting"
+class(x)
+
+# logical/boolean
+x <- TRUE
+class(x)
+```
+# Type Conversion
+
+You can convert from one type to another with the following functions:
+
+- as.numeric()
+- as.integer()
+- as.complex()
+```{r}
+x <- 1L # integer
+y <- 2 # numeric
+
+# convert from integer to numeric:
+a <- as.numeric(x)
+
+# convert from numeric to integer:
+b <- as.integer(y)
+
+# print values of x and y
+x
+y
+
+# print the class name of a and b
+class(a)
+class(b)
+```
+# Built-in Math Functions
+
+R also has many built-in math functions that allows you to perform mathematical tasks on numbers.
+
+For example, the `min()` and `max()` functions can be used to find the lowest or highest number in a set:
+
+### sqrt()
+The `sqrt()` function returns the square root of a number:
+
+### abs()
+The `abs()` function returns the absolute (positive) value of a number:
+
+### ceiling() and floor()
+The `ceiling()` function rounds a number upwards to its nearest integer, and the `floor()` function rounds a number downwards to its nearest integer, and returns the result:
+
+
+
+
+
