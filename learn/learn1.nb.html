@@ -2105,9 +2105,146 @@ str</code></pre>
    \b   --&gt; Backspace&#39;&#39;&#39;</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="boolean-logical-values" class="section level1">
+<h1>Boolean (Logical Values)</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMTAgPiA5ICAgICMgVFJVRSBiZWNhdXNlIDEwIGlzIGdyZWF0ZXIgdGhhbiA5XG5gYGAifQ== -->
+<pre class="r"><code>10 &gt; 9    # TRUE because 10 is greater than 9</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMTAgPT0gOSAgICMgRkFMU0UgYmVjYXVzZSAxMCBpcyBub3QgZXF1YWwgdG8gOVxuYGBgIn0= -->
+<pre class="r"><code>10 == 9   # FALSE because 10 is not equal to 9</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMTAgPCA5ICAgICMgRkFMU0UgYmVjYXVzZSAxMCBpcyBncmVhdGVyIHRoYW4gOVxuYGBgIn0= -->
+<pre class="r"><code>10 &lt; 9    # FALSE because 10 is greater than 9</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSAyMDBcbmIgPC0gMzNcblxuaWYgKGIgPiBhKSB7XG4gIHByaW50IChcImIgaXMgZ3JlYXRlciB0aGFuIGFcIilcbn0gZWxzZSB7XG4gIHByaW50KFwiYiBpcyBub3QgZ3JlYXRlciB0aGFuIGFcIilcbn1cbmBgYCJ9 -->
+<pre class="r"><code>a &lt;- 200
+b &lt;- 33
+
+if (b &gt; a) {
+  print (&quot;b is greater than a&quot;)
+} else {
+  print(&quot;b is not greater than a&quot;)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYiBpcyBub3QgZ3JlYXRlciB0aGFuIGFcIlxuIn0= -->
+<pre><code>[1] &quot;b is not greater than a&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="if-else-if-else-statement" class="section level1">
+<h1>If, Else If, Else Statement</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSAyMDBcbmIgPC0gMzNcblxuaWYgKGIgPiBhKSB7XG4gIHByaW50KFwiYiBpcyBncmVhdGVyIHRoYW4gYVwiKVxufSBlbHNlIGlmIChhID09IGIpIHtcbiAgcHJpbnQoXCJhIGFuZCBiIGFyZSBlcXVhbFwiKVxufSBlbHNlIHtcbiAgcHJpbnQoXCJhIGlzIGdyZWF0ZXIgdGhhbiBiXCIpXG59XG5gYGAifQ== -->
+<pre class="r"><code>a &lt;- 200
+b &lt;- 33
+
+if (b &gt; a) {
+  print(&quot;b is greater than a&quot;)
+} else if (a == b) {
+  print(&quot;a and b are equal&quot;)
+} else {
+  print(&quot;a is greater than b&quot;)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYSBpcyBncmVhdGVyIHRoYW4gYlwiXG4ifQ== -->
+<pre><code>[1] &quot;a is greater than b&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="r-nested-if" class="section level2">
+<h2>R Nested If</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSAxN1xuXG5pZiAoeCA+IDEwKSB7XG4gIHByaW50KFwiQWJvdmUgdGVuXCIpXG4gIGlmICh4ID4gMjApIHtcbiAgICBwcmludChcImFuZCBhbHNvIGFib3ZlIDIwIVwiKVxuICB9IGVsc2Uge1xuICAgIHByaW50KFwiYnV0IG5vdCBhYm92ZSAyMC5cIilcbiAgfVxufSBlbHNlIHtcbiAgcHJpbnQoXCJiZWxvdyAxMC5cIilcbn1cbmBgYCJ9 -->
+<pre class="r"><code>x &lt;- 17
+
+if (x &gt; 10) {
+  print(&quot;Above ten&quot;)
+  if (x &gt; 20) {
+    print(&quot;and also above 20!&quot;)
+  } else {
+    print(&quot;but not above 20.&quot;)
+  }
+} else {
+  print(&quot;below 10.&quot;)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQWJvdmUgdGVuXCJcblsxXSBcImJ1dCBub3QgYWJvdmUgMjAuXCJcbiJ9 -->
+<pre><code>[1] &quot;Above ten&quot;
+[1] &quot;but not above 20.&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="and" class="section level2">
+<h2>And</h2>
+<p>The <code>&amp;</code> symbol (and) is a logical operator, and is
+used to combine conditional statements:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSAyMDBcbmIgPC0gMzNcbmMgPC0gNTAwXG5cbmlmIChhID4gYiAmIGMgPiBhKSB7XG4gIHByaW50KFwiQm90aCBjb25kaXRpb25zIGFyZSB0cnVlXCIpXG59XG5gYGAifQ== -->
+<pre class="r"><code>a &lt;- 200
+b &lt;- 33
+c &lt;- 500
+
+if (a &gt; b &amp; c &gt; a) {
+  print(&quot;Both conditions are true&quot;)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQm90aCBjb25kaXRpb25zIGFyZSB0cnVlXCJcbiJ9 -->
+<pre><code>[1] &quot;Both conditions are true&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="or" class="section level2">
+<h2>Or</h2>
+<p>The <code>|</code> symbol (or) is a logical operator, and is used to
+combine conditional statements:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSAyMDBcbmIgPC0gMzNcbmMgPC0gNTAwXG5cbmlmIChhID4gYiB8IGEgPiBjKSB7XG4gIHByaW50KFwiQXQgbGVhc3Qgb25lIG9mIHRoZSBjb25kaXRpb25zIGlzIHRydWVcIilcbn1cbmBgYCJ9 -->
+<pre class="r"><code>a &lt;- 200
+b &lt;- 33
+c &lt;- 500
+
+if (a &gt; b | a &gt; c) {
+  print(&quot;At least one of the conditions is true&quot;)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQXQgbGVhc3Qgb25lIG9mIHRoZSBjb25kaXRpb25zIGlzIHRydWVcIlxuIn0= -->
+<pre><code>[1] &quot;At least one of the conditions is true&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="while-loop" class="section level1">
+<h1>While Loop</h1>
+<!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQojIFIgVHV0b3JpYWwKLSBJdCBpcyBhIGdyZWF0IHJlc291cmNlIGZvciBkYXRhIGFuYWx5c2lzLCBkYXRhIHZpc3VhbGl6YXRpb24sIGRhdGEgc2NpZW5jZSBhbmQgbWFjaGluZSBsZWFybmluZwotIEl0IHByb3ZpZGVzIG1hbnkgc3RhdGlzdGljYWwgdGVjaG5pcXVlcyAoc3VjaCBhcyBzdGF0aXN0aWNhbCB0ZXN0cywgY2xhc3NpZmljYXRpb24sIGNsdXN0ZXJpbmcgYW5kIGRhdGEgcmVkdWN0aW9uKQotIEl0IGlzIGVhc3kgdG8gZHJhdyBncmFwaHMgaW4gUiwgbGlrZSBwaWUgY2hhcnRzLCBoaXN0b2dyYW1zLCBib3ggcGxvdCwgc2NhdHRlciBwbG90LCBldGMrKwotIEl0IHdvcmtzIG9uIGRpZmZlcmVudCBwbGF0Zm9ybXMgKFdpbmRvd3MsIE1hYywgTGludXgpCi0gSXQgaXMgb3Blbi1zb3VyY2UgYW5kIGZyZWUKLSBJdCBoYXMgYSBsYXJnZSBjb21tdW5pdHkgc3VwcG9ydAotIEl0IGhhcyBtYW55IHBhY2thZ2VzIChsaWJyYXJpZXMgb2YgZnVuY3Rpb25zKSB0aGF0IGNhbiBiZSB1c2VkIHRvIHNvbHZlIGRpZmZlcmVudCBwcm9ibGVtcwpgYGB7cn0KIyBQcmludApmb3IgKHggaW4gMToxMCl7CiAgcHJpbnQoeCkKfQpgYGAKYGBge3J9CiMgVmFyaWFibGVzCm5hbWUgPC0gIlRhaGEgQmVyayIKYWdlIDwtIDIxCgpuYW1lCmFnZQpgYGAKYGBge3J9CiMgQ29uY2F0ZW5hdGUgRWxlbWVudHMKdGV4dCA8LSAiYXdzb21lIgoKcGFzdGUoIkNlcmVuIiwgdGV4dCkKCnRleHQxIDwtICJDZXJlbiIKdGV4dDIgPC0gImF3c29tZSIKCnBhc3RlKHRleHQxLCB0ZXh0MikKYGBgCmBgYHtyfQp2YXIxIDwtIHZhcjIgPC0gdmFyMyA8LSB2YXI0IDwtICJvcmFuZ2UiCgp2YXIxCnZhcjIKdmFyMwp2YXI0CmBgYAojIEJhc2ljIERhdGEgVHlwZXMKCkJhc2ljIGRhdGEgdHlwZXMgaW4gUiBjYW4gYmUgZGl2aWRlZCBpbnRvIHRoZSBmb2xsb3dpbmcgdHlwZXM6CgotIG51bWVyaWMgLSAoMTAuNSwgNTUsIDc4NykKLSBpbnRlZ2VyIC0gKDFMLCA1NUwsIDEwMEwsIHdoZXJlIHRoZSBsZXR0ZXIgIkwiIGRlY2xhcmVzIHRoaXMgYXMgYW4gaW50ZWdlcikKLSBjb21wbGV4IC0gKDkgKyAzaSwgd2hlcmUgImkiIGlzIHRoZSBpbWFnaW5hcnkgcGFydCkKLSBjaGFyYWN0ZXIgKGEuay5hLiBzdHJpbmcpIC0gKCJrIiwgIlIgaXMgZXhjaXRpbmciLCAiRkFMU0UiLCAiMTEuNSIpCi0gbG9naWNhbCAoYS5rLmEuIGJvb2xlYW4pIC0gKFRSVUUgb3IgRkFMU0UpCgpXZSBjYW4gdXNlIHRoZSBjbGFzcygpIGZ1bmN0aW9uIHRvIGNoZWNrIHRoZSBkYXRhIHR5cGUgb2YgYSB2YXJpYWJsZToKYGBge3J9CiMgRGF0YSBUeXBlcwojIG51bWVyaWMKeCA8LSAxMC41CmNsYXNzKHgpCgojIGludGVnZXIKeCA8LSAxMDAwTApjbGFzcyh4KQoKIyBjb21wbGV4CnggPC0gOWkgKyAzCmNsYXNzKHgpCgojIGNoYXJhY3Rlci9zdHJpbmcKeCA8LSAiUiBpcyBleGNpdGluZyIKY2xhc3MoeCkKCiMgbG9naWNhbC9ib29sZWFuCnggPC0gVFJVRQpjbGFzcyh4KQpgYGAKIyBUeXBlIENvbnZlcnNpb24KCllvdSBjYW4gY29udmVydCBmcm9tIG9uZSB0eXBlIHRvIGFub3RoZXIgd2l0aCB0aGUgZm9sbG93aW5nIGZ1bmN0aW9uczoKCi0gYXMubnVtZXJpYygpCi0gYXMuaW50ZWdlcigpCi0gYXMuY29tcGxleCgpCmBgYHtyfQp4IDwtIDFMICMgaW50ZWdlcgp5IDwtIDIgIyBudW1lcmljCgojIGNvbnZlcnQgZnJvbSBpbnRlZ2VyIHRvIG51bWVyaWM6CmEgPC0gYXMubnVtZXJpYyh4KQoKIyBjb252ZXJ0IGZyb20gbnVtZXJpYyB0byBpbnRlZ2VyOgpiIDwtIGFzLmludGVnZXIoeSkKCiMgcHJpbnQgdmFsdWVzIG9mIHggYW5kIHkKeAp5CgojIHByaW50IHRoZSBjbGFzcyBuYW1lIG9mIGEgYW5kIGIKY2xhc3MoYSkKY2xhc3MoYikKYGBgCgotLS0KCiMgQnVpbHQtaW4gTWF0aCBGdW5jdGlvbnMKClIgYWxzbyBoYXMgbWFueSBidWlsdC1pbiBtYXRoIGZ1bmN0aW9ucyB0aGF0IGFsbG93cyB5b3UgdG8gcGVyZm9ybSBtYXRoZW1hdGljYWwgdGFza3Mgb24gbnVtYmVycy4KCkZvciBleGFtcGxlLCB0aGUgYG1pbigpYCBhbmQgYG1heCgpYCBmdW5jdGlvbnMgY2FuIGJlIHVzZWQgdG8gZmluZCB0aGUgbG93ZXN0IG9yIGhpZ2hlc3QgbnVtYmVyIGluIGEgc2V0OgoKIyMjIHNxcnQoKQpUaGUgYHNxcnQoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgc3F1YXJlIHJvb3Qgb2YgYSBudW1iZXI6CgojIyMgYWJzKCkKVGhlIGBhYnMoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgKHBvc2l0aXZlKSB2YWx1ZSBvZiBhIG51bWJlcjoKCiMjIyBjZWlsaW5nKCkgYW5kIGZsb29yKCkKVGhlIGBjZWlsaW5nKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciB1cHdhcmRzIHRvIGl0cyBuZWFyZXN0IGludGVnZXIsIGFuZCB0aGUgYGZsb29yKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciBkb3dud2FyZHMgdG8gaXRzIG5lYXJlc3QgaW50ZWdlciwgYW5kIHJldHVybnMgdGhlIHJlc3VsdDoKCi0tLQoKIyBTdHJpbmcgTGl0ZXJhbHMKYCJoZWxsbyJgIGlzIHRoZSBzYW1lIGFzIGAnaGVsbG8nYDoKCiMjIE11bHRpcGxlIFN0cmluZ3MKYGBge3J9CnN0ciA8LSAiVGFoYSwKQmVyaywKVGVyZWtsaSIKCnN0cgpgYGAKCi0gSWYgeW91IHdhbnQgdGhlIGxpbmUgYnJlYWtzIGluc2VydGVkIGF0IHRoZSBzYW1lIHBvc2l0aW9uIGFzIGluIHRoZSBjb2RlLCB1c2UgdGhlIGBjYXQoKWAgZnVuY3Rpb246CmBgYHtyfQpzdHIgPC0gIlRhaGEsCkJlcmssClRlcmVrbGkiCgpjYXQoc3RyKQpgYGAKIyBTdHJpbmcgTGVuZ3RoCmBgYHtyfQpzdHIgPC0gIlRhaGEgQmVyayIKbmNoYXIoc3RyKQpgYGAKIyBDaGVjayBhIFN0cmluZwpgYGB7cn0Kc3RyIDwtICJUYWhhIEJlcmsiCgpncmVwbCgiVCIsIHN0cikKZ3JlcGwoIlRhaGEiLCBzdHIpCmdyZXBsKCJDIiwgc3RyKQpgYGAKIyBFc2NhcGUgQ2hhcmFjdGVycwpUbyBpbnNlcnQgY2hhcmFjdGVycyB0aGF0IGFyZSBpbGxlZ2FsIGluIGEgc3RyaW5nLCB5b3UgbXVzdCB1c2UgYW4gZXNjYXBlIGNoYXJhY3Rlci4KQW4gZXNjYXBlIGNoYXJhY3RlciBpcyBhIGJhY2tzbGFzaCBcIGZvbGxvd2VkIGJ5IHRoZSBjaGFyYWN0ZXIgeW91IHdhbnQgdG8gaW5zZXJ0LgpBbiBleGFtcGxlIG9mIGFuIGlsbGVnYWwgY2hhcmFjdGVyIGlzIGEgZG91YmxlIHF1b3RlIGluc2lkZSBhIHN0cmluZyB0aGF0IGlzIHN1cnJvdW5kZWQgYnkgZG91YmxlIHF1b3RlczoKYGBge3J9CnN0ciA8LSAiV2UgYXJlIHRoZSBzby1jYWxsZWQgXCJWaWtpbmdzXCIsIGZyb20gdGhlIG5vcnRoLiIKCnN0cgpjYXQoc3RyKQpgYGAKYGBge3J9CicnJ0NvZGUJICBSZXN1bHQKICAgXFwJLS0+IEJhY2tzbGFzaAogICBcbgktLT4gTmV3IExpbmUKICAgXHIJLS0+IENhcnJpYWdlIFJldHVybgogICBcdAktLT4gVGFiCiAgIFxiCS0tPiBCYWNrc3BhY2UnJycKYGBg</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQojIFIgVHV0b3JpYWwKLSBJdCBpcyBhIGdyZWF0IHJlc291cmNlIGZvciBkYXRhIGFuYWx5c2lzLCBkYXRhIHZpc3VhbGl6YXRpb24sIGRhdGEgc2NpZW5jZSBhbmQgbWFjaGluZSBsZWFybmluZwotIEl0IHByb3ZpZGVzIG1hbnkgc3RhdGlzdGljYWwgdGVjaG5pcXVlcyAoc3VjaCBhcyBzdGF0aXN0aWNhbCB0ZXN0cywgY2xhc3NpZmljYXRpb24sIGNsdXN0ZXJpbmcgYW5kIGRhdGEgcmVkdWN0aW9uKQotIEl0IGlzIGVhc3kgdG8gZHJhdyBncmFwaHMgaW4gUiwgbGlrZSBwaWUgY2hhcnRzLCBoaXN0b2dyYW1zLCBib3ggcGxvdCwgc2NhdHRlciBwbG90LCBldGMrKwotIEl0IHdvcmtzIG9uIGRpZmZlcmVudCBwbGF0Zm9ybXMgKFdpbmRvd3MsIE1hYywgTGludXgpCi0gSXQgaXMgb3Blbi1zb3VyY2UgYW5kIGZyZWUKLSBJdCBoYXMgYSBsYXJnZSBjb21tdW5pdHkgc3VwcG9ydAotIEl0IGhhcyBtYW55IHBhY2thZ2VzIChsaWJyYXJpZXMgb2YgZnVuY3Rpb25zKSB0aGF0IGNhbiBiZSB1c2VkIHRvIHNvbHZlIGRpZmZlcmVudCBwcm9ibGVtcwpgYGB7cn0KIyBQcmludApmb3IgKHggaW4gMToxMCl7CiAgcHJpbnQoeCkKfQpgYGAKYGBge3J9CiMgVmFyaWFibGVzCm5hbWUgPC0gIlRhaGEgQmVyayIKYWdlIDwtIDIxCgpuYW1lCmFnZQpgYGAKYGBge3J9CiMgQ29uY2F0ZW5hdGUgRWxlbWVudHMKdGV4dCA8LSAiYXdzb21lIgoKcGFzdGUoIkNlcmVuIiwgdGV4dCkKCnRleHQxIDwtICJDZXJlbiIKdGV4dDIgPC0gImF3c29tZSIKCnBhc3RlKHRleHQxLCB0ZXh0MikKYGBgCmBgYHtyfQp2YXIxIDwtIHZhcjIgPC0gdmFyMyA8LSB2YXI0IDwtICJvcmFuZ2UiCgp2YXIxCnZhcjIKdmFyMwp2YXI0CmBgYAojIEJhc2ljIERhdGEgVHlwZXMKCkJhc2ljIGRhdGEgdHlwZXMgaW4gUiBjYW4gYmUgZGl2aWRlZCBpbnRvIHRoZSBmb2xsb3dpbmcgdHlwZXM6CgotIG51bWVyaWMgLSAoMTAuNSwgNTUsIDc4NykKLSBpbnRlZ2VyIC0gKDFMLCA1NUwsIDEwMEwsIHdoZXJlIHRoZSBsZXR0ZXIgIkwiIGRlY2xhcmVzIHRoaXMgYXMgYW4gaW50ZWdlcikKLSBjb21wbGV4IC0gKDkgKyAzaSwgd2hlcmUgImkiIGlzIHRoZSBpbWFnaW5hcnkgcGFydCkKLSBjaGFyYWN0ZXIgKGEuay5hLiBzdHJpbmcpIC0gKCJrIiwgIlIgaXMgZXhjaXRpbmciLCAiRkFMU0UiLCAiMTEuNSIpCi0gbG9naWNhbCAoYS5rLmEuIGJvb2xlYW4pIC0gKFRSVUUgb3IgRkFMU0UpCgpXZSBjYW4gdXNlIHRoZSBjbGFzcygpIGZ1bmN0aW9uIHRvIGNoZWNrIHRoZSBkYXRhIHR5cGUgb2YgYSB2YXJpYWJsZToKYGBge3J9CiMgRGF0YSBUeXBlcwojIG51bWVyaWMKeCA8LSAxMC41CmNsYXNzKHgpCgojIGludGVnZXIKeCA8LSAxMDAwTApjbGFzcyh4KQoKIyBjb21wbGV4CnggPC0gOWkgKyAzCmNsYXNzKHgpCgojIGNoYXJhY3Rlci9zdHJpbmcKeCA8LSAiUiBpcyBleGNpdGluZyIKY2xhc3MoeCkKCiMgbG9naWNhbC9ib29sZWFuCnggPC0gVFJVRQpjbGFzcyh4KQpgYGAKIyBUeXBlIENvbnZlcnNpb24KCllvdSBjYW4gY29udmVydCBmcm9tIG9uZSB0eXBlIHRvIGFub3RoZXIgd2l0aCB0aGUgZm9sbG93aW5nIGZ1bmN0aW9uczoKCi0gYXMubnVtZXJpYygpCi0gYXMuaW50ZWdlcigpCi0gYXMuY29tcGxleCgpCmBgYHtyfQp4IDwtIDFMICMgaW50ZWdlcgp5IDwtIDIgIyBudW1lcmljCgojIGNvbnZlcnQgZnJvbSBpbnRlZ2VyIHRvIG51bWVyaWM6CmEgPC0gYXMubnVtZXJpYyh4KQoKIyBjb252ZXJ0IGZyb20gbnVtZXJpYyB0byBpbnRlZ2VyOgpiIDwtIGFzLmludGVnZXIoeSkKCiMgcHJpbnQgdmFsdWVzIG9mIHggYW5kIHkKeAp5CgojIHByaW50IHRoZSBjbGFzcyBuYW1lIG9mIGEgYW5kIGIKY2xhc3MoYSkKY2xhc3MoYikKYGBgCgotLS0KCiMgQnVpbHQtaW4gTWF0aCBGdW5jdGlvbnMKClIgYWxzbyBoYXMgbWFueSBidWlsdC1pbiBtYXRoIGZ1bmN0aW9ucyB0aGF0IGFsbG93cyB5b3UgdG8gcGVyZm9ybSBtYXRoZW1hdGljYWwgdGFza3Mgb24gbnVtYmVycy4KCkZvciBleGFtcGxlLCB0aGUgYG1pbigpYCBhbmQgYG1heCgpYCBmdW5jdGlvbnMgY2FuIGJlIHVzZWQgdG8gZmluZCB0aGUgbG93ZXN0IG9yIGhpZ2hlc3QgbnVtYmVyIGluIGEgc2V0OgoKIyMjIHNxcnQoKQpUaGUgYHNxcnQoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgc3F1YXJlIHJvb3Qgb2YgYSBudW1iZXI6CgojIyMgYWJzKCkKVGhlIGBhYnMoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgKHBvc2l0aXZlKSB2YWx1ZSBvZiBhIG51bWJlcjoKCiMjIyBjZWlsaW5nKCkgYW5kIGZsb29yKCkKVGhlIGBjZWlsaW5nKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciB1cHdhcmRzIHRvIGl0cyBuZWFyZXN0IGludGVnZXIsIGFuZCB0aGUgYGZsb29yKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciBkb3dud2FyZHMgdG8gaXRzIG5lYXJlc3QgaW50ZWdlciwgYW5kIHJldHVybnMgdGhlIHJlc3VsdDoKCi0tLQoKIyBTdHJpbmcgTGl0ZXJhbHMKYCJoZWxsbyJgIGlzIHRoZSBzYW1lIGFzIGAnaGVsbG8nYDoKCiMjIE11bHRpcGxlIFN0cmluZ3MKYGBge3J9CnN0ciA8LSAiVGFoYSwKQmVyaywKVGVyZWtsaSIKCnN0cgpgYGAKCi0gSWYgeW91IHdhbnQgdGhlIGxpbmUgYnJlYWtzIGluc2VydGVkIGF0IHRoZSBzYW1lIHBvc2l0aW9uIGFzIGluIHRoZSBjb2RlLCB1c2UgdGhlIGBjYXQoKWAgZnVuY3Rpb246CmBgYHtyfQpzdHIgPC0gIlRhaGEsCkJlcmssClRlcmVrbGkiCgpjYXQoc3RyKQpgYGAKIyBTdHJpbmcgTGVuZ3RoCmBgYHtyfQpzdHIgPC0gIlRhaGEgQmVyayIKbmNoYXIoc3RyKQpgYGAKIyBDaGVjayBhIFN0cmluZwpgYGB7cn0Kc3RyIDwtICJUYWhhIEJlcmsiCgpncmVwbCgiVCIsIHN0cikKZ3JlcGwoIlRhaGEiLCBzdHIpCmdyZXBsKCJDIiwgc3RyKQpgYGAKIyBFc2NhcGUgQ2hhcmFjdGVycwpUbyBpbnNlcnQgY2hhcmFjdGVycyB0aGF0IGFyZSBpbGxlZ2FsIGluIGEgc3RyaW5nLCB5b3UgbXVzdCB1c2UgYW4gZXNjYXBlIGNoYXJhY3Rlci4KQW4gZXNjYXBlIGNoYXJhY3RlciBpcyBhIGJhY2tzbGFzaCBcIGZvbGxvd2VkIGJ5IHRoZSBjaGFyYWN0ZXIgeW91IHdhbnQgdG8gaW5zZXJ0LgpBbiBleGFtcGxlIG9mIGFuIGlsbGVnYWwgY2hhcmFjdGVyIGlzIGEgZG91YmxlIHF1b3RlIGluc2lkZSBhIHN0cmluZyB0aGF0IGlzIHN1cnJvdW5kZWQgYnkgZG91YmxlIHF1b3RlczoKYGBge3J9CnN0ciA8LSAiV2UgYXJlIHRoZSBzby1jYWxsZWQgXCJWaWtpbmdzXCIsIGZyb20gdGhlIG5vcnRoLiIKCnN0cgpjYXQoc3RyKQpgYGAKYGBge3J9CicnJ0NvZGUJICBSZXN1bHQKICAgXFwJLS0+IEJhY2tzbGFzaAogICBcbgktLT4gTmV3IExpbmUKICAgXHIJLS0+IENhcnJpYWdlIFJldHVybgogICBcdAktLT4gVGFiCiAgIFxiCS0tPiBCYWNrc3BhY2UnJycKYGBgCgotLS0KCiMgQm9vbGVhbiAoTG9naWNhbCBWYWx1ZXMpCmBgYHtyfQoxMCA+IDkgICAgIyBUUlVFIGJlY2F1c2UgMTAgaXMgZ3JlYXRlciB0aGFuIDkKMTAgPT0gOSAgICMgRkFMU0UgYmVjYXVzZSAxMCBpcyBub3QgZXF1YWwgdG8gOQoxMCA8IDkgICAgIyBGQUxTRSBiZWNhdXNlIDEwIGlzIGdyZWF0ZXIgdGhhbiA5CmBgYApgYGB7cn0KYSA8LSAyMDAKYiA8LSAzMwoKaWYgKGIgPiBhKSB7CiAgcHJpbnQgKCJiIGlzIGdyZWF0ZXIgdGhhbiBhIikKfSBlbHNlIHsKICBwcmludCgiYiBpcyBub3QgZ3JlYXRlciB0aGFuIGEiKQp9CmBgYAoKLS0tCgojIElmLCBFbHNlIElmLCBFbHNlIFN0YXRlbWVudApgYGB7cn0KYSA8LSAyMDAKYiA8LSAzMwoKaWYgKGIgPiBhKSB7CiAgcHJpbnQoImIgaXMgZ3JlYXRlciB0aGFuIGEiKQp9IGVsc2UgaWYgKGEgPT0gYikgewogIHByaW50KCJhIGFuZCBiIGFyZSBlcXVhbCIpCn0gZWxzZSB7CiAgcHJpbnQoImEgaXMgZ3JlYXRlciB0aGFuIGIiKQp9CmBgYAojIyBSIE5lc3RlZCBJZgpgYGB7cn0KeCA8LSAxNwoKaWYgKHggPiAxMCkgewogIHByaW50KCJBYm92ZSB0ZW4iKQogIGlmICh4ID4gMjApIHsKICAgIHByaW50KCJhbmQgYWxzbyBhYm92ZSAyMCEiKQogIH0gZWxzZSB7CiAgICBwcmludCgiYnV0IG5vdCBhYm92ZSAyMC4iKQogIH0KfSBlbHNlIHsKICBwcmludCgiYmVsb3cgMTAuIikKfQpgYGAKIyMgQW5kClRoZSBgJmAgc3ltYm9sIChhbmQpIGlzIGEgbG9naWNhbCBvcGVyYXRvciwgYW5kIGlzIHVzZWQgdG8gY29tYmluZSBjb25kaXRpb25hbCBzdGF0ZW1lbnRzOgpgYGB7cn0KYSA8LSAyMDAKYiA8LSAzMwpjIDwtIDUwMAoKaWYgKGEgPiBiICYgYyA+IGEpIHsKICBwcmludCgiQm90aCBjb25kaXRpb25zIGFyZSB0cnVlIikKfQpgYGAKIyMgT3IKVGhlIGB8YCBzeW1ib2wgKG9yKSBpcyBhIGxvZ2ljYWwgb3BlcmF0b3IsIGFuZCBpcyB1c2VkIHRvIGNvbWJpbmUgY29uZGl0aW9uYWwgc3RhdGVtZW50czoKYGBge3J9CmEgPC0gMjAwCmIgPC0gMzMKYyA8LSA1MDAKCmlmIChhID4gYiB8IGEgPiBjKSB7CiAgcHJpbnQoIkF0IGxlYXN0IG9uZSBvZiB0aGUgY29uZGl0aW9ucyBpcyB0cnVlIikKfQpgYGAKCi0tLQoKIyBXaGlsZSBMb29w</div>
 
 
 
