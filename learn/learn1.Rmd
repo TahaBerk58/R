@@ -164,14 +164,6 @@ str <- "We are the so-called \"Vikings\", from the north."
 str
 cat(str)
 ```
-```{r}
-'''Code	  Result
-   \\	--> Backslash
-   \n	--> New Line
-   \r	--> Carriage Return
-   \t	--> Tab
-   \b	--> Backspace'''
-```
 
 ---
 
@@ -247,4 +239,93 @@ if (a > b | a > c) {
 
 ---
 
-# While Loop
+# Loops
+Loops can execute a block of code as long as a specified condition is reached.
+Loops are handy because they save time, reduce errors, and they make code more readable.
+R has two loop commands:
+
+- `while` loops
+- `for` loops
+
+### While Loop
+With the `while` loop we can execute a set of statements as long as a condition is TRUE:
+```{r}
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+}
+```
+## For Loop
+A `for` loop is used for iterating over a sequence:
+```{r}
+for (x in 1:10) {
+  print(x)
+}
+```
+```{r}
+fruits <- list("apple", "banana", "cherry")
+
+for (x in fruits) {
+  print(x)
+}
+```
+#### Break
+With the `break` statement, we can stop the loop even if the while condition is TRUE:
+```{r}
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+  if (i == 4) {
+    break
+  }
+}
+```
+```{r}
+fruits <- list("apple", "banana", "cherry")
+
+for (x in fruits) {
+  if (x == "cherry") {
+    break
+  }
+  print(x)
+}
+```
+
+#### Next
+With the `next` statement, we can skip an iteration without terminating the loop:
+```{r}
+i <- 0
+while (i < 6) {
+  i <- i + 1
+  if (i == 3) {
+    next
+  }
+  print(i)
+}
+```
+```{r}
+fruits <- list("apple", "banana", "cherry")
+
+for (x in fruits) {
+  if (x == "banana") {
+    next
+  }
+  print(x)
+}
+```
+### Nested Loops
+It is also possible to place a loop inside another loop. This is called a *nested loop*:
+```{r}
+adj <- list("red", "big", "tasty")
+
+fruits <- list("apple", "banana", "cherry")
+  for (x in adj) {
+    for (y in fruits) {
+      print(paste(x, y))
+  }
+}
+```
+
+

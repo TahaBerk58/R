@@ -2095,16 +2095,6 @@ str</code></pre>
 <pre><code>We are the so-called &quot;Vikings&quot;, from the north.</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuJycnQ29kZVx0ICBSZXN1bHRcbiAgIFxcXFxcdC0tPiBCYWNrc2xhc2hcbiAgIFxcblx0LS0+IE5ldyBMaW5lXG4gICBcXHJcdC0tPiBDYXJyaWFnZSBSZXR1cm5cbiAgIFxcdFx0LS0+IFRhYlxuICAgXFxiXHQtLT4gQmFja3NwYWNlJycnXG5gYGAifQ== -->
-<pre class="r"><code>&#39;&#39;&#39;Code   Result
-   \\   --&gt; Backslash
-   \n   --&gt; New Line
-   \r   --&gt; Carriage Return
-   \t   --&gt; Tab
-   \b   --&gt; Backspace&#39;&#39;&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <hr />
 </div>
@@ -2239,12 +2229,193 @@ if (a &gt; b | a &gt; c) {
 <hr />
 </div>
 </div>
-<div id="while-loop" class="section level1">
-<h1>While Loop</h1>
+<div id="loops" class="section level1">
+<h1>Loops</h1>
+<p>Loops can execute a block of code as long as a specified condition is
+reached. Loops are handy because they save time, reduce errors, and they
+make code more readable. R has two loop commands:</p>
+<ul>
+<li><code>while</code> loops</li>
+<li><code>for</code> loops</li>
+</ul>
+<div id="while-loop" class="section level3">
+<h3>While Loop</h3>
+<p>With the <code>while</code> loop we can execute a set of statements
+as long as a condition is TRUE:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaSA8LSAxXG53aGlsZSAoaSA8IDYpIHtcbiAgcHJpbnQoaSlcbiAgaSA8LSBpICsgMVxufVxuYGBgIn0= -->
+<pre class="r"><code>i &lt;- 1
+while (i &lt; 6) {
+  print(i)
+  i &lt;- i + 1
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcblsxXSAyXG5bMV0gM1xuWzFdIDRcblsxXSA1XG4ifQ== -->
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="for-loop" class="section level2">
+<h2>For Loop</h2>
+<p>A <code>for</code> loop is used for iterating over a sequence:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9yICh4IGluIDE6MTApIHtcbiAgcHJpbnQoeClcbn1cbmBgYCJ9 -->
+<pre class="r"><code>for (x in 1:10) {
+  print(x)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcblsxXSAyXG5bMV0gM1xuWzFdIDRcblsxXSA1XG5bMV0gNlxuWzFdIDdcblsxXSA4XG5bMV0gOVxuWzFdIDEwXG4ifQ== -->
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 7
+[1] 8
+[1] 9
+[1] 10</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnJ1aXRzIDwtIGxpc3QoXCJhcHBsZVwiLCBcImJhbmFuYVwiLCBcImNoZXJyeVwiKVxuXG5mb3IgKHggaW4gZnJ1aXRzKSB7XG4gIHByaW50KHgpXG59XG5gYGAifQ== -->
+<pre class="r"><code>fruits &lt;- list(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+
+for (x in fruits) {
+  print(x)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYXBwbGVcIlxuWzFdIFwiYmFuYW5hXCJcblsxXSBcImNoZXJyeVwiXG4ifQ== -->
+<pre><code>[1] &quot;apple&quot;
+[1] &quot;banana&quot;
+[1] &quot;cherry&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="break" class="section level4">
+<h4>Break</h4>
+<p>With the <code>break</code> statement, we can stop the loop even if
+the while condition is TRUE:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaSA8LSAxXG53aGlsZSAoaSA8IDYpIHtcbiAgcHJpbnQoaSlcbiAgaSA8LSBpICsgMVxuICBpZiAoaSA9PSA0KSB7XG4gICAgYnJlYWtcbiAgfVxufVxuYGBgIn0= -->
+<pre class="r"><code>i &lt;- 1
+while (i &lt; 6) {
+  print(i)
+  i &lt;- i + 1
+  if (i == 4) {
+    break
+  }
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcblsxXSAyXG5bMV0gM1xuIn0= -->
+<pre><code>[1] 1
+[1] 2
+[1] 3</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnJ1aXRzIDwtIGxpc3QoXCJhcHBsZVwiLCBcImJhbmFuYVwiLCBcImNoZXJyeVwiKVxuXG5mb3IgKHggaW4gZnJ1aXRzKSB7XG4gIGlmICh4ID09IFwiY2hlcnJ5XCIpIHtcbiAgICBicmVha1xuICB9XG4gIHByaW50KHgpXG59XG5gYGAifQ== -->
+<pre class="r"><code>fruits &lt;- list(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+
+for (x in fruits) {
+  if (x == &quot;cherry&quot;) {
+    break
+  }
+  print(x)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYXBwbGVcIlxuWzFdIFwiYmFuYW5hXCJcbiJ9 -->
+<pre><code>[1] &quot;apple&quot;
+[1] &quot;banana&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="next" class="section level4">
+<h4>Next</h4>
+<p>With the <code>next</code> statement, we can skip an iteration
+without terminating the loop:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaSA8LSAwXG53aGlsZSAoaSA8IDYpIHtcbiAgaSA8LSBpICsgMVxuICBpZiAoaSA9PSAzKSB7XG4gICAgbmV4dFxuICB9XG4gIHByaW50KGkpXG59XG5gYGAifQ== -->
+<pre class="r"><code>i &lt;- 0
+while (i &lt; 6) {
+  i &lt;- i + 1
+  if (i == 3) {
+    next
+  }
+  print(i)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcblsxXSAyXG5bMV0gNFxuWzFdIDVcblsxXSA2XG4ifQ== -->
+<pre><code>[1] 1
+[1] 2
+[1] 4
+[1] 5
+[1] 6</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnJ1aXRzIDwtIGxpc3QoXCJhcHBsZVwiLCBcImJhbmFuYVwiLCBcImNoZXJyeVwiKVxuXG5mb3IgKHggaW4gZnJ1aXRzKSB7XG4gIGlmICh4ID09IFwiYmFuYW5hXCIpIHtcbiAgICBuZXh0XG4gIH1cbiAgcHJpbnQoeClcbn1cbmBgYCJ9 -->
+<pre class="r"><code>fruits &lt;- list(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+
+for (x in fruits) {
+  if (x == &quot;banana&quot;) {
+    next
+  }
+  print(x)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYXBwbGVcIlxuWzFdIFwiY2hlcnJ5XCJcbiJ9 -->
+<pre><code>[1] &quot;apple&quot;
+[1] &quot;cherry&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="nested-loops" class="section level3">
+<h3>Nested Loops</h3>
+<p>It is also possible to place a loop inside another loop. This is
+called a <em>nested loop</em>:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWRqIDwtIGxpc3QoXCJyZWRcIiwgXCJiaWdcIiwgXCJ0YXN0eVwiKVxuXG5mcnVpdHMgPC0gbGlzdChcImFwcGxlXCIsIFwiYmFuYW5hXCIsIFwiY2hlcnJ5XCIpXG4gIGZvciAoeCBpbiBhZGopIHtcbiAgICBmb3IgKHkgaW4gZnJ1aXRzKSB7XG4gICAgICBwcmludChwYXN0ZSh4LCB5KSlcbiAgfVxufVxuYGBgIn0= -->
+<pre class="r"><code>adj &lt;- list(&quot;red&quot;, &quot;big&quot;, &quot;tasty&quot;)
+
+fruits &lt;- list(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+  for (x in adj) {
+    for (y in fruits) {
+      print(paste(x, y))
+  }
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwicmVkIGFwcGxlXCJcblsxXSBcInJlZCBiYW5hbmFcIlxuWzFdIFwicmVkIGNoZXJyeVwiXG5bMV0gXCJiaWcgYXBwbGVcIlxuWzFdIFwiYmlnIGJhbmFuYVwiXG5bMV0gXCJiaWcgY2hlcnJ5XCJcblsxXSBcInRhc3R5IGFwcGxlXCJcblsxXSBcInRhc3R5IGJhbmFuYVwiXG5bMV0gXCJ0YXN0eSBjaGVycnlcIlxuIn0= -->
+<pre><code>[1] &quot;red apple&quot;
+[1] &quot;red banana&quot;
+[1] &quot;red cherry&quot;
+[1] &quot;big apple&quot;
+[1] &quot;big banana&quot;
+[1] &quot;big cherry&quot;
+[1] &quot;tasty apple&quot;
+[1] &quot;tasty banana&quot;
+[1] &quot;tasty cherry&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
+</div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQojIFIgVHV0b3JpYWwKLSBJdCBpcyBhIGdyZWF0IHJlc291cmNlIGZvciBkYXRhIGFuYWx5c2lzLCBkYXRhIHZpc3VhbGl6YXRpb24sIGRhdGEgc2NpZW5jZSBhbmQgbWFjaGluZSBsZWFybmluZwotIEl0IHByb3ZpZGVzIG1hbnkgc3RhdGlzdGljYWwgdGVjaG5pcXVlcyAoc3VjaCBhcyBzdGF0aXN0aWNhbCB0ZXN0cywgY2xhc3NpZmljYXRpb24sIGNsdXN0ZXJpbmcgYW5kIGRhdGEgcmVkdWN0aW9uKQotIEl0IGlzIGVhc3kgdG8gZHJhdyBncmFwaHMgaW4gUiwgbGlrZSBwaWUgY2hhcnRzLCBoaXN0b2dyYW1zLCBib3ggcGxvdCwgc2NhdHRlciBwbG90LCBldGMrKwotIEl0IHdvcmtzIG9uIGRpZmZlcmVudCBwbGF0Zm9ybXMgKFdpbmRvd3MsIE1hYywgTGludXgpCi0gSXQgaXMgb3Blbi1zb3VyY2UgYW5kIGZyZWUKLSBJdCBoYXMgYSBsYXJnZSBjb21tdW5pdHkgc3VwcG9ydAotIEl0IGhhcyBtYW55IHBhY2thZ2VzIChsaWJyYXJpZXMgb2YgZnVuY3Rpb25zKSB0aGF0IGNhbiBiZSB1c2VkIHRvIHNvbHZlIGRpZmZlcmVudCBwcm9ibGVtcwpgYGB7cn0KIyBQcmludApmb3IgKHggaW4gMToxMCl7CiAgcHJpbnQoeCkKfQpgYGAKYGBge3J9CiMgVmFyaWFibGVzCm5hbWUgPC0gIlRhaGEgQmVyayIKYWdlIDwtIDIxCgpuYW1lCmFnZQpgYGAKYGBge3J9CiMgQ29uY2F0ZW5hdGUgRWxlbWVudHMKdGV4dCA8LSAiYXdzb21lIgoKcGFzdGUoIkNlcmVuIiwgdGV4dCkKCnRleHQxIDwtICJDZXJlbiIKdGV4dDIgPC0gImF3c29tZSIKCnBhc3RlKHRleHQxLCB0ZXh0MikKYGBgCmBgYHtyfQp2YXIxIDwtIHZhcjIgPC0gdmFyMyA8LSB2YXI0IDwtICJvcmFuZ2UiCgp2YXIxCnZhcjIKdmFyMwp2YXI0CmBgYAojIEJhc2ljIERhdGEgVHlwZXMKCkJhc2ljIGRhdGEgdHlwZXMgaW4gUiBjYW4gYmUgZGl2aWRlZCBpbnRvIHRoZSBmb2xsb3dpbmcgdHlwZXM6CgotIG51bWVyaWMgLSAoMTAuNSwgNTUsIDc4NykKLSBpbnRlZ2VyIC0gKDFMLCA1NUwsIDEwMEwsIHdoZXJlIHRoZSBsZXR0ZXIgIkwiIGRlY2xhcmVzIHRoaXMgYXMgYW4gaW50ZWdlcikKLSBjb21wbGV4IC0gKDkgKyAzaSwgd2hlcmUgImkiIGlzIHRoZSBpbWFnaW5hcnkgcGFydCkKLSBjaGFyYWN0ZXIgKGEuay5hLiBzdHJpbmcpIC0gKCJrIiwgIlIgaXMgZXhjaXRpbmciLCAiRkFMU0UiLCAiMTEuNSIpCi0gbG9naWNhbCAoYS5rLmEuIGJvb2xlYW4pIC0gKFRSVUUgb3IgRkFMU0UpCgpXZSBjYW4gdXNlIHRoZSBjbGFzcygpIGZ1bmN0aW9uIHRvIGNoZWNrIHRoZSBkYXRhIHR5cGUgb2YgYSB2YXJpYWJsZToKYGBge3J9CiMgRGF0YSBUeXBlcwojIG51bWVyaWMKeCA8LSAxMC41CmNsYXNzKHgpCgojIGludGVnZXIKeCA8LSAxMDAwTApjbGFzcyh4KQoKIyBjb21wbGV4CnggPC0gOWkgKyAzCmNsYXNzKHgpCgojIGNoYXJhY3Rlci9zdHJpbmcKeCA8LSAiUiBpcyBleGNpdGluZyIKY2xhc3MoeCkKCiMgbG9naWNhbC9ib29sZWFuCnggPC0gVFJVRQpjbGFzcyh4KQpgYGAKIyBUeXBlIENvbnZlcnNpb24KCllvdSBjYW4gY29udmVydCBmcm9tIG9uZSB0eXBlIHRvIGFub3RoZXIgd2l0aCB0aGUgZm9sbG93aW5nIGZ1bmN0aW9uczoKCi0gYXMubnVtZXJpYygpCi0gYXMuaW50ZWdlcigpCi0gYXMuY29tcGxleCgpCmBgYHtyfQp4IDwtIDFMICMgaW50ZWdlcgp5IDwtIDIgIyBudW1lcmljCgojIGNvbnZlcnQgZnJvbSBpbnRlZ2VyIHRvIG51bWVyaWM6CmEgPC0gYXMubnVtZXJpYyh4KQoKIyBjb252ZXJ0IGZyb20gbnVtZXJpYyB0byBpbnRlZ2VyOgpiIDwtIGFzLmludGVnZXIoeSkKCiMgcHJpbnQgdmFsdWVzIG9mIHggYW5kIHkKeAp5CgojIHByaW50IHRoZSBjbGFzcyBuYW1lIG9mIGEgYW5kIGIKY2xhc3MoYSkKY2xhc3MoYikKYGBgCgotLS0KCiMgQnVpbHQtaW4gTWF0aCBGdW5jdGlvbnMKClIgYWxzbyBoYXMgbWFueSBidWlsdC1pbiBtYXRoIGZ1bmN0aW9ucyB0aGF0IGFsbG93cyB5b3UgdG8gcGVyZm9ybSBtYXRoZW1hdGljYWwgdGFza3Mgb24gbnVtYmVycy4KCkZvciBleGFtcGxlLCB0aGUgYG1pbigpYCBhbmQgYG1heCgpYCBmdW5jdGlvbnMgY2FuIGJlIHVzZWQgdG8gZmluZCB0aGUgbG93ZXN0IG9yIGhpZ2hlc3QgbnVtYmVyIGluIGEgc2V0OgoKIyMjIHNxcnQoKQpUaGUgYHNxcnQoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgc3F1YXJlIHJvb3Qgb2YgYSBudW1iZXI6CgojIyMgYWJzKCkKVGhlIGBhYnMoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgKHBvc2l0aXZlKSB2YWx1ZSBvZiBhIG51bWJlcjoKCiMjIyBjZWlsaW5nKCkgYW5kIGZsb29yKCkKVGhlIGBjZWlsaW5nKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciB1cHdhcmRzIHRvIGl0cyBuZWFyZXN0IGludGVnZXIsIGFuZCB0aGUgYGZsb29yKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciBkb3dud2FyZHMgdG8gaXRzIG5lYXJlc3QgaW50ZWdlciwgYW5kIHJldHVybnMgdGhlIHJlc3VsdDoKCi0tLQoKIyBTdHJpbmcgTGl0ZXJhbHMKYCJoZWxsbyJgIGlzIHRoZSBzYW1lIGFzIGAnaGVsbG8nYDoKCiMjIE11bHRpcGxlIFN0cmluZ3MKYGBge3J9CnN0ciA8LSAiVGFoYSwKQmVyaywKVGVyZWtsaSIKCnN0cgpgYGAKCi0gSWYgeW91IHdhbnQgdGhlIGxpbmUgYnJlYWtzIGluc2VydGVkIGF0IHRoZSBzYW1lIHBvc2l0aW9uIGFzIGluIHRoZSBjb2RlLCB1c2UgdGhlIGBjYXQoKWAgZnVuY3Rpb246CmBgYHtyfQpzdHIgPC0gIlRhaGEsCkJlcmssClRlcmVrbGkiCgpjYXQoc3RyKQpgYGAKIyBTdHJpbmcgTGVuZ3RoCmBgYHtyfQpzdHIgPC0gIlRhaGEgQmVyayIKbmNoYXIoc3RyKQpgYGAKIyBDaGVjayBhIFN0cmluZwpgYGB7cn0Kc3RyIDwtICJUYWhhIEJlcmsiCgpncmVwbCgiVCIsIHN0cikKZ3JlcGwoIlRhaGEiLCBzdHIpCmdyZXBsKCJDIiwgc3RyKQpgYGAKIyBFc2NhcGUgQ2hhcmFjdGVycwpUbyBpbnNlcnQgY2hhcmFjdGVycyB0aGF0IGFyZSBpbGxlZ2FsIGluIGEgc3RyaW5nLCB5b3UgbXVzdCB1c2UgYW4gZXNjYXBlIGNoYXJhY3Rlci4KQW4gZXNjYXBlIGNoYXJhY3RlciBpcyBhIGJhY2tzbGFzaCBcIGZvbGxvd2VkIGJ5IHRoZSBjaGFyYWN0ZXIgeW91IHdhbnQgdG8gaW5zZXJ0LgpBbiBleGFtcGxlIG9mIGFuIGlsbGVnYWwgY2hhcmFjdGVyIGlzIGEgZG91YmxlIHF1b3RlIGluc2lkZSBhIHN0cmluZyB0aGF0IGlzIHN1cnJvdW5kZWQgYnkgZG91YmxlIHF1b3RlczoKYGBge3J9CnN0ciA8LSAiV2UgYXJlIHRoZSBzby1jYWxsZWQgXCJWaWtpbmdzXCIsIGZyb20gdGhlIG5vcnRoLiIKCnN0cgpjYXQoc3RyKQpgYGAKYGBge3J9CicnJ0NvZGUJICBSZXN1bHQKICAgXFwJLS0+IEJhY2tzbGFzaAogICBcbgktLT4gTmV3IExpbmUKICAgXHIJLS0+IENhcnJpYWdlIFJldHVybgogICBcdAktLT4gVGFiCiAgIFxiCS0tPiBCYWNrc3BhY2UnJycKYGBgCgotLS0KCiMgQm9vbGVhbiAoTG9naWNhbCBWYWx1ZXMpCmBgYHtyfQoxMCA+IDkgICAgIyBUUlVFIGJlY2F1c2UgMTAgaXMgZ3JlYXRlciB0aGFuIDkKMTAgPT0gOSAgICMgRkFMU0UgYmVjYXVzZSAxMCBpcyBub3QgZXF1YWwgdG8gOQoxMCA8IDkgICAgIyBGQUxTRSBiZWNhdXNlIDEwIGlzIGdyZWF0ZXIgdGhhbiA5CmBgYApgYGB7cn0KYSA8LSAyMDAKYiA8LSAzMwoKaWYgKGIgPiBhKSB7CiAgcHJpbnQgKCJiIGlzIGdyZWF0ZXIgdGhhbiBhIikKfSBlbHNlIHsKICBwcmludCgiYiBpcyBub3QgZ3JlYXRlciB0aGFuIGEiKQp9CmBgYAoKLS0tCgojIElmLCBFbHNlIElmLCBFbHNlIFN0YXRlbWVudApgYGB7cn0KYSA8LSAyMDAKYiA8LSAzMwoKaWYgKGIgPiBhKSB7CiAgcHJpbnQoImIgaXMgZ3JlYXRlciB0aGFuIGEiKQp9IGVsc2UgaWYgKGEgPT0gYikgewogIHByaW50KCJhIGFuZCBiIGFyZSBlcXVhbCIpCn0gZWxzZSB7CiAgcHJpbnQoImEgaXMgZ3JlYXRlciB0aGFuIGIiKQp9CmBgYAojIyBSIE5lc3RlZCBJZgpgYGB7cn0KeCA8LSAxNwoKaWYgKHggPiAxMCkgewogIHByaW50KCJBYm92ZSB0ZW4iKQogIGlmICh4ID4gMjApIHsKICAgIHByaW50KCJhbmQgYWxzbyBhYm92ZSAyMCEiKQogIH0gZWxzZSB7CiAgICBwcmludCgiYnV0IG5vdCBhYm92ZSAyMC4iKQogIH0KfSBlbHNlIHsKICBwcmludCgiYmVsb3cgMTAuIikKfQpgYGAKIyMgQW5kClRoZSBgJmAgc3ltYm9sIChhbmQpIGlzIGEgbG9naWNhbCBvcGVyYXRvciwgYW5kIGlzIHVzZWQgdG8gY29tYmluZSBjb25kaXRpb25hbCBzdGF0ZW1lbnRzOgpgYGB7cn0KYSA8LSAyMDAKYiA8LSAzMwpjIDwtIDUwMAoKaWYgKGEgPiBiICYgYyA+IGEpIHsKICBwcmludCgiQm90aCBjb25kaXRpb25zIGFyZSB0cnVlIikKfQpgYGAKIyMgT3IKVGhlIGB8YCBzeW1ib2wgKG9yKSBpcyBhIGxvZ2ljYWwgb3BlcmF0b3IsIGFuZCBpcyB1c2VkIHRvIGNvbWJpbmUgY29uZGl0aW9uYWwgc3RhdGVtZW50czoKYGBge3J9CmEgPC0gMjAwCmIgPC0gMzMKYyA8LSA1MDAKCmlmIChhID4gYiB8IGEgPiBjKSB7CiAgcHJpbnQoIkF0IGxlYXN0IG9uZSBvZiB0aGUgY29uZGl0aW9ucyBpcyB0cnVlIikKfQpgYGAKCi0tLQoKIyBXaGlsZSBMb29w</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQojIFIgVHV0b3JpYWwKLSBJdCBpcyBhIGdyZWF0IHJlc291cmNlIGZvciBkYXRhIGFuYWx5c2lzLCBkYXRhIHZpc3VhbGl6YXRpb24sIGRhdGEgc2NpZW5jZSBhbmQgbWFjaGluZSBsZWFybmluZwotIEl0IHByb3ZpZGVzIG1hbnkgc3RhdGlzdGljYWwgdGVjaG5pcXVlcyAoc3VjaCBhcyBzdGF0aXN0aWNhbCB0ZXN0cywgY2xhc3NpZmljYXRpb24sIGNsdXN0ZXJpbmcgYW5kIGRhdGEgcmVkdWN0aW9uKQotIEl0IGlzIGVhc3kgdG8gZHJhdyBncmFwaHMgaW4gUiwgbGlrZSBwaWUgY2hhcnRzLCBoaXN0b2dyYW1zLCBib3ggcGxvdCwgc2NhdHRlciBwbG90LCBldGMrKwotIEl0IHdvcmtzIG9uIGRpZmZlcmVudCBwbGF0Zm9ybXMgKFdpbmRvd3MsIE1hYywgTGludXgpCi0gSXQgaXMgb3Blbi1zb3VyY2UgYW5kIGZyZWUKLSBJdCBoYXMgYSBsYXJnZSBjb21tdW5pdHkgc3VwcG9ydAotIEl0IGhhcyBtYW55IHBhY2thZ2VzIChsaWJyYXJpZXMgb2YgZnVuY3Rpb25zKSB0aGF0IGNhbiBiZSB1c2VkIHRvIHNvbHZlIGRpZmZlcmVudCBwcm9ibGVtcwpgYGB7cn0KIyBQcmludApmb3IgKHggaW4gMToxMCl7CiAgcHJpbnQoeCkKfQpgYGAKYGBge3J9CiMgVmFyaWFibGVzCm5hbWUgPC0gIlRhaGEgQmVyayIKYWdlIDwtIDIxCgpuYW1lCmFnZQpgYGAKYGBge3J9CiMgQ29uY2F0ZW5hdGUgRWxlbWVudHMKdGV4dCA8LSAiYXdzb21lIgoKcGFzdGUoIkNlcmVuIiwgdGV4dCkKCnRleHQxIDwtICJDZXJlbiIKdGV4dDIgPC0gImF3c29tZSIKCnBhc3RlKHRleHQxLCB0ZXh0MikKYGBgCmBgYHtyfQp2YXIxIDwtIHZhcjIgPC0gdmFyMyA8LSB2YXI0IDwtICJvcmFuZ2UiCgp2YXIxCnZhcjIKdmFyMwp2YXI0CmBgYAojIEJhc2ljIERhdGEgVHlwZXMKCkJhc2ljIGRhdGEgdHlwZXMgaW4gUiBjYW4gYmUgZGl2aWRlZCBpbnRvIHRoZSBmb2xsb3dpbmcgdHlwZXM6CgotIG51bWVyaWMgLSAoMTAuNSwgNTUsIDc4NykKLSBpbnRlZ2VyIC0gKDFMLCA1NUwsIDEwMEwsIHdoZXJlIHRoZSBsZXR0ZXIgIkwiIGRlY2xhcmVzIHRoaXMgYXMgYW4gaW50ZWdlcikKLSBjb21wbGV4IC0gKDkgKyAzaSwgd2hlcmUgImkiIGlzIHRoZSBpbWFnaW5hcnkgcGFydCkKLSBjaGFyYWN0ZXIgKGEuay5hLiBzdHJpbmcpIC0gKCJrIiwgIlIgaXMgZXhjaXRpbmciLCAiRkFMU0UiLCAiMTEuNSIpCi0gbG9naWNhbCAoYS5rLmEuIGJvb2xlYW4pIC0gKFRSVUUgb3IgRkFMU0UpCgpXZSBjYW4gdXNlIHRoZSBjbGFzcygpIGZ1bmN0aW9uIHRvIGNoZWNrIHRoZSBkYXRhIHR5cGUgb2YgYSB2YXJpYWJsZToKYGBge3J9CiMgRGF0YSBUeXBlcwojIG51bWVyaWMKeCA8LSAxMC41CmNsYXNzKHgpCgojIGludGVnZXIKeCA8LSAxMDAwTApjbGFzcyh4KQoKIyBjb21wbGV4CnggPC0gOWkgKyAzCmNsYXNzKHgpCgojIGNoYXJhY3Rlci9zdHJpbmcKeCA8LSAiUiBpcyBleGNpdGluZyIKY2xhc3MoeCkKCiMgbG9naWNhbC9ib29sZWFuCnggPC0gVFJVRQpjbGFzcyh4KQpgYGAKIyBUeXBlIENvbnZlcnNpb24KCllvdSBjYW4gY29udmVydCBmcm9tIG9uZSB0eXBlIHRvIGFub3RoZXIgd2l0aCB0aGUgZm9sbG93aW5nIGZ1bmN0aW9uczoKCi0gYXMubnVtZXJpYygpCi0gYXMuaW50ZWdlcigpCi0gYXMuY29tcGxleCgpCmBgYHtyfQp4IDwtIDFMICMgaW50ZWdlcgp5IDwtIDIgIyBudW1lcmljCgojIGNvbnZlcnQgZnJvbSBpbnRlZ2VyIHRvIG51bWVyaWM6CmEgPC0gYXMubnVtZXJpYyh4KQoKIyBjb252ZXJ0IGZyb20gbnVtZXJpYyB0byBpbnRlZ2VyOgpiIDwtIGFzLmludGVnZXIoeSkKCiMgcHJpbnQgdmFsdWVzIG9mIHggYW5kIHkKeAp5CgojIHByaW50IHRoZSBjbGFzcyBuYW1lIG9mIGEgYW5kIGIKY2xhc3MoYSkKY2xhc3MoYikKYGBgCgotLS0KCiMgQnVpbHQtaW4gTWF0aCBGdW5jdGlvbnMKClIgYWxzbyBoYXMgbWFueSBidWlsdC1pbiBtYXRoIGZ1bmN0aW9ucyB0aGF0IGFsbG93cyB5b3UgdG8gcGVyZm9ybSBtYXRoZW1hdGljYWwgdGFza3Mgb24gbnVtYmVycy4KCkZvciBleGFtcGxlLCB0aGUgYG1pbigpYCBhbmQgYG1heCgpYCBmdW5jdGlvbnMgY2FuIGJlIHVzZWQgdG8gZmluZCB0aGUgbG93ZXN0IG9yIGhpZ2hlc3QgbnVtYmVyIGluIGEgc2V0OgoKIyMjIHNxcnQoKQpUaGUgYHNxcnQoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgc3F1YXJlIHJvb3Qgb2YgYSBudW1iZXI6CgojIyMgYWJzKCkKVGhlIGBhYnMoKWAgZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgKHBvc2l0aXZlKSB2YWx1ZSBvZiBhIG51bWJlcjoKCiMjIyBjZWlsaW5nKCkgYW5kIGZsb29yKCkKVGhlIGBjZWlsaW5nKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciB1cHdhcmRzIHRvIGl0cyBuZWFyZXN0IGludGVnZXIsIGFuZCB0aGUgYGZsb29yKClgIGZ1bmN0aW9uIHJvdW5kcyBhIG51bWJlciBkb3dud2FyZHMgdG8gaXRzIG5lYXJlc3QgaW50ZWdlciwgYW5kIHJldHVybnMgdGhlIHJlc3VsdDoKCi0tLQoKIyBTdHJpbmcgTGl0ZXJhbHMKYCJoZWxsbyJgIGlzIHRoZSBzYW1lIGFzIGAnaGVsbG8nYDoKCiMjIE11bHRpcGxlIFN0cmluZ3MKYGBge3J9CnN0ciA8LSAiVGFoYSwKQmVyaywKVGVyZWtsaSIKCnN0cgpgYGAKCi0gSWYgeW91IHdhbnQgdGhlIGxpbmUgYnJlYWtzIGluc2VydGVkIGF0IHRoZSBzYW1lIHBvc2l0aW9uIGFzIGluIHRoZSBjb2RlLCB1c2UgdGhlIGBjYXQoKWAgZnVuY3Rpb246CmBgYHtyfQpzdHIgPC0gIlRhaGEsCkJlcmssClRlcmVrbGkiCgpjYXQoc3RyKQpgYGAKIyBTdHJpbmcgTGVuZ3RoCmBgYHtyfQpzdHIgPC0gIlRhaGEgQmVyayIKbmNoYXIoc3RyKQpgYGAKIyBDaGVjayBhIFN0cmluZwpgYGB7cn0Kc3RyIDwtICJUYWhhIEJlcmsiCgpncmVwbCgiVCIsIHN0cikKZ3JlcGwoIlRhaGEiLCBzdHIpCmdyZXBsKCJDIiwgc3RyKQpgYGAKIyBFc2NhcGUgQ2hhcmFjdGVycwpUbyBpbnNlcnQgY2hhcmFjdGVycyB0aGF0IGFyZSBpbGxlZ2FsIGluIGEgc3RyaW5nLCB5b3UgbXVzdCB1c2UgYW4gZXNjYXBlIGNoYXJhY3Rlci4KQW4gZXNjYXBlIGNoYXJhY3RlciBpcyBhIGJhY2tzbGFzaCBcIGZvbGxvd2VkIGJ5IHRoZSBjaGFyYWN0ZXIgeW91IHdhbnQgdG8gaW5zZXJ0LgpBbiBleGFtcGxlIG9mIGFuIGlsbGVnYWwgY2hhcmFjdGVyIGlzIGEgZG91YmxlIHF1b3RlIGluc2lkZSBhIHN0cmluZyB0aGF0IGlzIHN1cnJvdW5kZWQgYnkgZG91YmxlIHF1b3RlczoKYGBge3J9CnN0ciA8LSAiV2UgYXJlIHRoZSBzby1jYWxsZWQgXCJWaWtpbmdzXCIsIGZyb20gdGhlIG5vcnRoLiIKCnN0cgpjYXQoc3RyKQpgYGAKCi0tLQoKIyBCb29sZWFuIChMb2dpY2FsIFZhbHVlcykKYGBge3J9CjEwID4gOSAgICAjIFRSVUUgYmVjYXVzZSAxMCBpcyBncmVhdGVyIHRoYW4gOQoxMCA9PSA5ICAgIyBGQUxTRSBiZWNhdXNlIDEwIGlzIG5vdCBlcXVhbCB0byA5CjEwIDwgOSAgICAjIEZBTFNFIGJlY2F1c2UgMTAgaXMgZ3JlYXRlciB0aGFuIDkKYGBgCmBgYHtyfQphIDwtIDIwMApiIDwtIDMzCgppZiAoYiA+IGEpIHsKICBwcmludCAoImIgaXMgZ3JlYXRlciB0aGFuIGEiKQp9IGVsc2UgewogIHByaW50KCJiIGlzIG5vdCBncmVhdGVyIHRoYW4gYSIpCn0KYGBgCgotLS0KCiMgSWYsIEVsc2UgSWYsIEVsc2UgU3RhdGVtZW50CmBgYHtyfQphIDwtIDIwMApiIDwtIDMzCgppZiAoYiA+IGEpIHsKICBwcmludCgiYiBpcyBncmVhdGVyIHRoYW4gYSIpCn0gZWxzZSBpZiAoYSA9PSBiKSB7CiAgcHJpbnQoImEgYW5kIGIgYXJlIGVxdWFsIikKfSBlbHNlIHsKICBwcmludCgiYSBpcyBncmVhdGVyIHRoYW4gYiIpCn0KYGBgCiMjIFIgTmVzdGVkIElmCmBgYHtyfQp4IDwtIDE3CgppZiAoeCA+IDEwKSB7CiAgcHJpbnQoIkFib3ZlIHRlbiIpCiAgaWYgKHggPiAyMCkgewogICAgcHJpbnQoImFuZCBhbHNvIGFib3ZlIDIwISIpCiAgfSBlbHNlIHsKICAgIHByaW50KCJidXQgbm90IGFib3ZlIDIwLiIpCiAgfQp9IGVsc2UgewogIHByaW50KCJiZWxvdyAxMC4iKQp9CmBgYAojIyBBbmQKVGhlIGAmYCBzeW1ib2wgKGFuZCkgaXMgYSBsb2dpY2FsIG9wZXJhdG9yLCBhbmQgaXMgdXNlZCB0byBjb21iaW5lIGNvbmRpdGlvbmFsIHN0YXRlbWVudHM6CmBgYHtyfQphIDwtIDIwMApiIDwtIDMzCmMgPC0gNTAwCgppZiAoYSA+IGIgJiBjID4gYSkgewogIHByaW50KCJCb3RoIGNvbmRpdGlvbnMgYXJlIHRydWUiKQp9CmBgYAojIyBPcgpUaGUgYHxgIHN5bWJvbCAob3IpIGlzIGEgbG9naWNhbCBvcGVyYXRvciwgYW5kIGlzIHVzZWQgdG8gY29tYmluZSBjb25kaXRpb25hbCBzdGF0ZW1lbnRzOgpgYGB7cn0KYSA8LSAyMDAKYiA8LSAzMwpjIDwtIDUwMAoKaWYgKGEgPiBiIHwgYSA+IGMpIHsKICBwcmludCgiQXQgbGVhc3Qgb25lIG9mIHRoZSBjb25kaXRpb25zIGlzIHRydWUiKQp9CmBgYAoKLS0tCgojIExvb3BzCkxvb3BzIGNhbiBleGVjdXRlIGEgYmxvY2sgb2YgY29kZSBhcyBsb25nIGFzIGEgc3BlY2lmaWVkIGNvbmRpdGlvbiBpcyByZWFjaGVkLgpMb29wcyBhcmUgaGFuZHkgYmVjYXVzZSB0aGV5IHNhdmUgdGltZSwgcmVkdWNlIGVycm9ycywgYW5kIHRoZXkgbWFrZSBjb2RlIG1vcmUgcmVhZGFibGUuClIgaGFzIHR3byBsb29wIGNvbW1hbmRzOgoKLSBgd2hpbGVgIGxvb3BzCi0gYGZvcmAgbG9vcHMKCiMjIyBXaGlsZSBMb29wCldpdGggdGhlIGB3aGlsZWAgbG9vcCB3ZSBjYW4gZXhlY3V0ZSBhIHNldCBvZiBzdGF0ZW1lbnRzIGFzIGxvbmcgYXMgYSBjb25kaXRpb24gaXMgVFJVRToKYGBge3J9CmkgPC0gMQp3aGlsZSAoaSA8IDYpIHsKICBwcmludChpKQogIGkgPC0gaSArIDEKfQpgYGAKIyMgRm9yIExvb3AKQSBgZm9yYCBsb29wIGlzIHVzZWQgZm9yIGl0ZXJhdGluZyBvdmVyIGEgc2VxdWVuY2U6CmBgYHtyfQpmb3IgKHggaW4gMToxMCkgewogIHByaW50KHgpCn0KYGBgCmBgYHtyfQpmcnVpdHMgPC0gbGlzdCgiYXBwbGUiLCAiYmFuYW5hIiwgImNoZXJyeSIpCgpmb3IgKHggaW4gZnJ1aXRzKSB7CiAgcHJpbnQoeCkKfQpgYGAKIyMjIyBCcmVhawpXaXRoIHRoZSBgYnJlYWtgIHN0YXRlbWVudCwgd2UgY2FuIHN0b3AgdGhlIGxvb3AgZXZlbiBpZiB0aGUgd2hpbGUgY29uZGl0aW9uIGlzIFRSVUU6CmBgYHtyfQppIDwtIDEKd2hpbGUgKGkgPCA2KSB7CiAgcHJpbnQoaSkKICBpIDwtIGkgKyAxCiAgaWYgKGkgPT0gNCkgewogICAgYnJlYWsKICB9Cn0KYGBgCmBgYHtyfQpmcnVpdHMgPC0gbGlzdCgiYXBwbGUiLCAiYmFuYW5hIiwgImNoZXJyeSIpCgpmb3IgKHggaW4gZnJ1aXRzKSB7CiAgaWYgKHggPT0gImNoZXJyeSIpIHsKICAgIGJyZWFrCiAgfQogIHByaW50KHgpCn0KYGBgCgojIyMjIE5leHQKV2l0aCB0aGUgYG5leHRgIHN0YXRlbWVudCwgd2UgY2FuIHNraXAgYW4gaXRlcmF0aW9uIHdpdGhvdXQgdGVybWluYXRpbmcgdGhlIGxvb3A6CmBgYHtyfQppIDwtIDAKd2hpbGUgKGkgPCA2KSB7CiAgaSA8LSBpICsgMQogIGlmIChpID09IDMpIHsKICAgIG5leHQKICB9CiAgcHJpbnQoaSkKfQpgYGAKYGBge3J9CmZydWl0cyA8LSBsaXN0KCJhcHBsZSIsICJiYW5hbmEiLCAiY2hlcnJ5IikKCmZvciAoeCBpbiBmcnVpdHMpIHsKICBpZiAoeCA9PSAiYmFuYW5hIikgewogICAgbmV4dAogIH0KICBwcmludCh4KQp9CmBgYAojIyMgTmVzdGVkIExvb3BzCkl0IGlzIGFsc28gcG9zc2libGUgdG8gcGxhY2UgYSBsb29wIGluc2lkZSBhbm90aGVyIGxvb3AuIFRoaXMgaXMgY2FsbGVkIGEgKm5lc3RlZCBsb29wKjoKYGBge3J9CmFkaiA8LSBsaXN0KCJyZWQiLCAiYmlnIiwgInRhc3R5IikKCmZydWl0cyA8LSBsaXN0KCJhcHBsZSIsICJiYW5hbmEiLCAiY2hlcnJ5IikKICBmb3IgKHggaW4gYWRqKSB7CiAgICBmb3IgKHkgaW4gZnJ1aXRzKSB7CiAgICAgIHByaW50KHBhc3RlKHgsIHkpKQogIH0KfQpgYGAKCgo=</div>
 
 
 
