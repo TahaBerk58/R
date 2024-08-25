@@ -328,4 +328,122 @@ fruits <- list("apple", "banana", "cherry")
 }
 ```
 
+---
+
+# R Functions
+A function is a block of code which only runs when it is called.
+You can pass data, known as parameters, into a function.
+A function can return data as a result.
+#### Call a Funcion
+```{r}
+my_function <- function() {
+  print("Hello World!")
+}
+
+my_function() # call the function named my_function
+```
+#### Arguments
+```{r}
+my_function <- function(fname) {
+  paste(fname, "Griffin")
+}
+
+my_function("Peter")
+my_function("Lois")
+my_function("Stewie")
+```
+#### Number of Arguments
+```{r}
+my_function <- function(fname, lname) {
+  paste(fname, lname)
+}
+
+my_function("Peter", "Griffin")
+```
+#### Defalut Parameter Value
+```{r}
+my_function <- function(country = "Norway") {
+  paste("I am from", country)
+}
+
+my_function("Sweden")
+my_function("India")
+my_function() # will get the default value, which is Norway
+my_function("USA")
+```
+#### Return Values
+To let a function return a result, use the `return()` function:
+```{r}
+my_function <- function(x) {
+  return (5 * x)
+}
+
+print(my_function(3))
+print(my_function(5))
+```
+#### Nested Functions
+There are two ways to create a nested function:
+
+- Call a function within another function.
+- Write a function within a function.
+```{r}
+Nested_function <- function(x, y) {
+  a <- x + y
+  return(a)
+}
+
+Nested_function(Nested_function(2,2), Nested_function(3,3))
+```
+```{r}
+Outer_func <- function(x) {
+  Inner_func <- function(y) {
+    a <- x + y
+    return(a)
+  }
+  return (Inner_func)
+}
+output <- Outer_func(3) # To call the Outer_func
+output(5)
+```
+#### Recursion
+R also accepts function recursion, which means a defined function can call itself.
+
+Recursion is a common mathematical and programming concept. It means that a function calls itself. This has the benefit of meaning that you can loop through data to reach a result.
+
+The developer should be very careful with recursion as it can be quite easy to slip into writing a function which never terminates, or one that uses excess amounts of memory or processor power. However, when written correctly, recursion can be a very efficient and mathematically-elegant approach to programming.
+```{r}
+tri_recursion <- function(k) {
+  if (k > 0) {
+    result <- k + tri_recursion(k - 1)
+    print(result)
+  } else {
+    result = 0
+    return(result)
+  }
+}
+tri_recursion(6)
+```
+#### Global Variables
+Variables that are created outside of a function are known as global variables.
+
+Global variables can be used by everyone, both inside of functions and outside.
+```{r}
+txt <- "awesome"
+my_function <- function() {
+  paste("R is", txt)
+}
+
+my_function()
+```
+```{r}
+txt <- "global variable"
+my_function <- function() {
+  txt = "fantastic"
+  paste("R is", txt)
+}
+
+my_function()
+
+txt # print txt
+```
 
