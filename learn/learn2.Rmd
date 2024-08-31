@@ -10,7 +10,7 @@ date: "2024-08-31"
 
 A vector is simply a list of items that are of the same type.
 
-To combine the list of items to a vector, use the c() function and separate the items by a comma.
+To combine the list of items to a vector, use the `c()` function and separate the items by a comma.
 
 In the example below, we create a vector variable called fruits, that combine strings:
 ```{r}
@@ -37,4 +37,5 @@ log_values <- c(TRUE, FALSE, TRUE, FALSE)
 
 log_values
 ```
-
+#### Vector Length
+To find out how many items a vector has, use the `length()` function:

@@ -357,6 +357,39 @@ display: none;
 
 <div id="data-structures" class="section level1">
 <h1>Data Structures</h1>
+<div id="vectors" class="section level4">
+<h4>Vectors</h4>
+<p>A vector is simply a list of items that are of the same type.</p>
+<p>To combine the list of items to a vector, use the <code>c()</code>
+function and separate the items by a comma.</p>
+<p>In the example below, we create a vector variable called fruits, that
+combine strings:</p>
+<pre class="r"><code>fruits &lt;- c(&quot;banana&quot;, &quot;apple&quot;, &quot;peach&quot;)
+
+fruits</code></pre>
+<pre><code>## [1] &quot;banana&quot; &quot;apple&quot;  &quot;peach&quot;</code></pre>
+<pre class="r"><code>numbers &lt;- 1:10
+numbers</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code># Vector with numerical decimals in a sequence
+numbers1 &lt;- 1.5:6.5
+numbers1</code></pre>
+<pre><code>## [1] 1.5 2.5 3.5 4.5 5.5 6.5</code></pre>
+<pre class="r"><code># Vector with numerical decimals in a sequence where the last element is not used
+numbers2 &lt;- 1.5:6.3
+numbers2</code></pre>
+<pre><code>## [1] 1.5 2.5 3.5 4.5 5.5</code></pre>
+<pre class="r"><code># Vector of logical values
+log_values &lt;- c(TRUE, FALSE, TRUE, FALSE)
+
+log_values</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE FALSE</code></pre>
+</div>
+<div id="vector-length" class="section level4">
+<h4>Vector Length</h4>
+<p>To find out how many items a vector has, use the
+<code>length()</code> function:</p>
+</div>
 </div>
 
 
