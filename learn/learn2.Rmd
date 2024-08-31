@@ -3,7 +3,19 @@ title: "Untitled"
 output: html_document
 date: "2024-08-31"
 ---
+
 # Data Structures
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+
+#### Vectors
+
+A vector is simply a list of items that are of the same type.
+
+To combine the list of items to a vector, use the c() function and separate the items by a comma.
+
+In the example below, we create a vector variable called fruits, that combine strings:
+```{r}
+fruits <- c("banana", "apple", "peach")
+
+fruits
 ```
+
