@@ -17,11 +17,31 @@ library(scales)
 
 # Preparing the Data
 
-- Creating vector of colors for the plots
+### Explanation of R Code: Defining Colors
+
+This code block stores specific color codes in a vector. These colors are often used in plots or visualizations.
+
+- `colors = c(...)`: This line defines a vector named `colors`. The `c()` function combines multiple elements into a single vector.
+- Each element is a color code in hexadecimal format (e.g., `#CC1011` is a red color).
+
+The output of the code will display the contents of the `colors` vector.
 ```{r}
 colors = c("#CC1011", "#665555", "#05a399", "#cfcaca", "#f5e840", "#0683c9", "#e075b0")
 colors
 ```
+### Explanation of R Code: Reading and Combining Uber Data
+
+This code block reads Uber ride data for each month separately and then combines the data into a single dataset.
+
+- **Reading Data:**
+  - The `read.csv()` function is used to load CSV files for each month (April to September 2014) into R. Each file contains raw data related to Uber rides for the respective month.
+  - The data is stored in variables named `apr`, `may`, `june`, `july`, `aug`, and `sept`, corresponding to the months from April to September.
+
+- **Combining Data:**
+  - The `rbind()` function is used to combine these monthly datasets row-wise, creating one large dataset named `data` that contains all the Uber rides from April to September 2014.
+  
+- **Displaying Data Dimensions:**
+  - `dim(data)` returns the dimensions (number of rows and columns) of the combined dataset, which is printed using `cat()` to provide information about the size of the dataset.
 ```{r}
 # Read the data for each month separately 
 apr <- read.csv("/Users/tahaberkterekli/Documents/GitHub/R/projects/Uber Data Analysis/Uber-dataset/uber-raw-data-apr14.csv")
