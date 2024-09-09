@@ -1,0 +1,107 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(ggplot2)
+library(ggthemes)
+library(lubridate)
+library(dplyr)
+library(tidyr)
+library(tidyverse) # metapackage of all tidyverse packages
+library(DT)
+library(scales)
+```
+
+---
+
+# Preparing the Data
+
+- Creating vector of colors for the plots
+```{r}
+colors = c("#CC1011", "#665555", "#05a399", "#cfcaca", "#f5e840", "#0683c9", "#e075b0")
+colors
+```
+```{r}
+# Read the data for each month separately 
+apr <- read.csv("/Users/tahaberkterekli/Documents/GitHub/R/projects/Uber Data Analysis/Uber-dataset/uber-raw-data-apr14.csv")
+may <- read.csv("/Users/tahaberkterekli/Documents/GitHub/R/projects/Uber Data Analysis/Uber-dataset/uber-raw-data-may14.csv")
+june <- read.csv("/Users/tahaberkterekli/Documents/GitHub/R/projects/Uber Data Analysis/Uber-dataset/uber-raw-data-jun14.csv")
+july <- read.csv("/Users/tahaberkterekli/Documents/GitHub/R/projects/Uber Data Analysis/Uber-dataset/uber-raw-data-jul14.csv")
+aug <- read.csv("/Users/tahaberkterekli/Documents/GitHub/R/projects/Uber Data Analysis/Uber-dataset/uber-raw-data-aug14.csv")
+sept <- read.csv("/Users/tahaberkterekli/Documents/GitHub/R/projects/Uber Data Analysis/Uber-dataset/uber-raw-data-sep14.csv")
+
+# Combine the data together 
+data <- rbind(apr, may, june, july, aug, sept)
+cat("The dimensions of the data are:", dim(data))
+```
+```{r}
+# Print the first 6 rows of the data5
+head(data)
+```
+```{r}
+data$Date.Time <- as.POSIXct(data$Date.Time, format="%m/%d/%Y %H:%M:%S")
+data$Time <- format(as.POSIXct(data$Date.Time, format = "%m/%d/%Y %H:%M:%S"), format="%H:%M:%S")
+data$Date.Time <- ymd_hms(data$Date.Time)
+```
+```{r}
+data$day <- factor(day(data$Date.Time))
+data$month <- factor(month(data$Date.Time, label=TRUE))
+data$year <- factor(year(data$Date.Time))
+data$dayofweek <- factor(wday(data$Date.Time, label=TRUE))
+```
+```{r}
+# Add Time variables as well 
+data$second = factor(second(hms(data$Time)))
+data$minute = factor(minute(hms(data$Time)))
+data$hour = factor(hour(hms(data$Time)))
+```
+```{r}
+head(data)
+```
+
+---
+
+# Data Visualisation
+
+```{r}
+hourly_data <- data %>%
+                    group_by(hour) %>%
+                            dplyr::summarize(Total = n())
+
+datatable(hourly_data)
+```
+```{r}
+# Plot the data by hour
+# Plot the data by hour
+ggplot(hourly_data, aes(hour, Total)) + 
+geom_bar(stat="identity", 
+         fill="steelblue", 
+         color="red") + 
+ggtitle("Trips Every Hour", subtitle = "aggregated today") + 
+theme(legend.position = "none", 
+      plot.title = element_text(hjust = 0.5), 
+      plot.subtitle = element_text(hjust = 0.5)) + 
+scale_y_continuous(labels=comma)
+```
+```{r}
+# Aggregate the data by month and hour
+month_hour_data <- data %>% group_by(month, hour) %>% dplyr::summarize(Total =n())
+
+ggplot(month_hour_data, aes(hour, Total, fill=month)) +
+geom_bar(stat = "identity") +
+ggtitle("Trips by Hour and Month") +
+scale_y_continuous(labels = comma)
+```
+```{r}
+day_data <- data %>% group_by(day) %>% dplyr::summarize(Trips = n())
+day_data
+```
+```{r}
+ggplot(day_data, aes(day, Trips)) +
+geom_bar(stat = "identity", fill = "steelblue") +
+ggtitle("Trips by day of the month") +
+theme(legend.position = "none") + 
+scale_y_continuous(labels = comma)
+```
+
