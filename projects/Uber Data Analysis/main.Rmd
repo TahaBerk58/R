@@ -136,6 +136,25 @@ head(data)
 
 # Data Visualisation
 
+### Explanation of R Code: Summarizing Data by Hour
+
+This code block groups the dataset by the `hour` column and calculates the total number of entries (rides) for each hour. It then displays the summarized data in an interactive table.
+
+- **Grouping Data by Hour:**
+  - `data %>% group_by(hour)`: 
+    - The `%>%` operator (pipe) is used to pass the `data` dataset into the next function.
+    - `group_by(hour)` groups the data by the `hour` column, so that all rides occurring in the same hour are grouped together.
+
+- **Summarizing the Total:**
+  - `dplyr::summarize(Total = n())`: 
+    - The `summarize()` function (from the `dplyr` package) creates a summary for each hour.
+    - `n()` counts the number of rows in each group, representing the total number of rides for that specific hour.
+    - This creates a new data frame, `hourly_data`, with two columns: `hour` and `Total`.
+
+- **Displaying the Data:**
+  - `datatable(hourly_data)`: This function (from the `DT` package) displays the `hourly_data` in an interactive table format, allowing for sorting, searching, and other interactive operations.
+
+This code helps analyze how Uber rides are distributed across different hours of the day by summarizing the total ride counts for each hour.
 ```{r}
 hourly_data <- data %>%
                     group_by(hour) %>%
