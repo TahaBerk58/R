@@ -162,6 +162,34 @@ hourly_data <- data %>%
 
 datatable(hourly_data)
 ```
+### Explanation of R Code: Plotting Trips by Hour
+
+This code block creates a bar chart that visualizes the total number of trips taken during each hour of the day using the `ggplot2` library.
+
+- **Defining the Plot:**
+  - `ggplot(hourly_data, aes(hour, Total))`: 
+    - The `ggplot()` function initiates a plot using the `hourly_data` dataset. 
+    - The `aes(hour, Total)` defines the aesthetics of the plot, with `hour` on the x-axis and `Total` on the y-axis, where `Total` represents the total number of trips for each hour.
+
+- **Creating the Bar Chart:**
+  - `geom_bar(stat="identity", fill="steelblue", color="red")`: 
+    - `geom_bar()` creates a bar chart. The `stat="identity"` option means that the heights of the bars represent the values in the `Total` column, rather than being automatically calculated.
+    - The bars are filled with a "steelblue" color and outlined with a red border, enhancing the chart's visual appeal.
+
+- **Adding Title and Subtitle:**
+  - `ggtitle("Trips Every Hour", subtitle = "aggregated today")`: 
+    - This function adds a title ("Trips Every Hour") and a subtitle ("aggregated today") to the chart for context.
+
+- **Customizing the Plot's Theme:**
+  - `theme(legend.position = "none", plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))`: 
+    - `legend.position = "none"` removes the legend from the plot, as it is not needed.
+    - `plot.title = element_text(hjust = 0.5)` and `plot.subtitle = element_text(hjust = 0.5)` center-align the title and subtitle, creating a balanced and visually appealing layout.
+
+- **Formatting the Y-Axis:**
+  - `scale_y_continuous(labels=comma)`:
+    - This function modifies the y-axis by adding commas to the labels for better readability of large numbers (e.g., displaying "1,000" instead of "1000").
+
+This code helps visualize how trips are distributed across different hours of the day, making it easier to spot trends or peak times for trip activity. The use of colors, title, and formatted labels makes the plot more informative and aesthetically pleasing.
 ```{r}
 # Plot the data by hour
 # Plot the data by hour
@@ -175,6 +203,33 @@ theme(legend.position = "none",
       plot.subtitle = element_text(hjust = 0.5)) + 
 scale_y_continuous(labels=comma)
 ```
+### Explanation of R Code: Aggregating and Plotting Trips by Month and Hour
+
+This code block aggregates the dataset by both month and hour, and then creates a bar chart to visualize the total number of trips for each combination of month and hour.
+
+- **Aggregating the Data:**
+  - `month_hour_data <- data %>% group_by(month, hour) %>% dplyr::summarize(Total = n())`: 
+    - The `%>%` operator (pipe) is used to pass the `data` dataset into the next function.
+    - `group_by(month, hour)` groups the data by both the `month` and `hour` columns, so that all trips occurring in the same month and hour are grouped together.
+    - `dplyr::summarize(Total = n())` creates a summary for each group:
+      - `n()` counts the number of rows (trips) in each group, representing the total number of trips for that specific month and hour.
+    - This results in a new data frame, `month_hour_data`, with three columns: `month`, `hour`, and `Total`.
+
+- **Creating the Bar Chart:**
+  - `ggplot(month_hour_data, aes(hour, Total, fill=month)) +`: 
+    - The `ggplot()` function initializes the plot using the `month_hour_data` dataset.
+    - `aes(hour, Total, fill=month)` defines the aesthetics of the plot, with `hour` on the x-axis and `Total` on the y-axis. The bars are filled with different colors based on the `month` column.
+
+  - `geom_bar(stat = "identity") +`: 
+    - `geom_bar()` creates a bar chart. The `stat = "identity"` option specifies that the heights of the bars represent the values in the `Total` column.
+
+  - `ggtitle("Trips by Hour and Month") +`: 
+    - Adds a title ("Trips by Hour and Month") to the chart for context.
+
+  - `scale_y_continuous(labels = comma)`: 
+    - Formats the y-axis labels with commas for better readability of large numbers.
+
+This code helps to analyze and visualize the distribution of trips across different hours of the day for each month. The use of colors for different months allows for easy comparison and trend identification across both time and seasonal variations.
 ```{r}
 # Aggregate the data by month and hour
 month_hour_data <- data %>% group_by(month, hour) %>% dplyr::summarize(Total =n())
@@ -184,10 +239,54 @@ geom_bar(stat = "identity") +
 ggtitle("Trips by Hour and Month") +
 scale_y_continuous(labels = comma)
 ```
+### Explanation of R Code: Aggregating Trips by Day
+
+This code block aggregates the dataset by day and summarizes the total number of trips for each day.
+
+- **Aggregating the Data:**
+  - `day_data <- data %>% group_by(day) %>% dplyr::summarize(Trips = n())`: 
+    - The `%>%` operator (pipe) is used to pass the `data` dataset into the next function.
+    - `group_by(day)` groups the data by the `day` column, so that all trips occurring on the same day are grouped together.
+    - `dplyr::summarize(Trips = n())` creates a summary for each group:
+      - `n()` counts the number of rows (trips) in each group, representing the total number of trips for that specific day.
+    - This results in a new data frame, `day_data`, with two columns: `day` and `Trips`.
+
+- **Displaying the Data:**
+  - `day_data`: 
+    - This line prints the `day_data` data frame to the console, allowing you to view the aggregated total number of trips for each day.
+
+This code helps analyze the total number of trips for each day, providing a clear summary of daily trip counts.
 ```{r}
 day_data <- data %>% group_by(day) %>% dplyr::summarize(Trips = n())
 day_data
 ```
+### Explanation of R Code: Plotting Trips by Day of the Month
+
+This code block creates a bar chart that visualizes the total number of trips for each day of the month using the `ggplot2` library.
+
+- **Defining the Plot:**
+  - `ggplot(day_data, aes(day, Trips)) +`: 
+    - The `ggplot()` function initializes the plot using the `day_data` dataset.
+    - `aes(day, Trips)` defines the aesthetics of the plot, with `day` on the x-axis and `Trips` on the y-axis, where `Trips` represents the total number of trips for each day.
+
+- **Creating the Bar Chart:**
+  - `geom_bar(stat = "identity", fill = "steelblue") +`: 
+    - `geom_bar()` creates a bar chart. The `stat = "identity"` option means that the heights of the bars represent the values in the `Trips` column.
+    - The bars are filled with a "steelblue" color, which provides a clear and consistent visual representation.
+
+- **Adding Title:**
+  - `ggtitle("Trips by day of the month") +`: 
+    - Adds a title ("Trips by day of the month") to the chart for context.
+
+- **Customizing the Plot's Theme:**
+  - `theme(legend.position = "none") +`: 
+    - `legend.position = "none"` removes the legend from the plot, as it is not needed for this type of visualization.
+
+- **Formatting the Y-Axis:**
+  - `scale_y_continuous(labels = comma)`: 
+    - Formats the y-axis labels with commas for better readability of large numbers.
+
+This code helps visualize the distribution of trips across different days of the month. The bar chart makes it easy to compare trip counts for each day and identify any patterns or trends.
 ```{r}
 ggplot(day_data, aes(day, Trips)) +
 geom_bar(stat = "identity", fill = "steelblue") +
